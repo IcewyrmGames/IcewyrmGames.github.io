@@ -1,14 +1,22 @@
 # Site settings
-title: Your awesome title
+title: Icewyrm Games Databank
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A place for information related to Icewyrm Games, and indie
+  development studio in Anchorage, Alaska.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://IcewyrmGames.github.io" # the base hostname & protocol for your site
+twitter_username: IcewyrmGames
+github_username:  IcewyrmGames
+
+author:
+  name: Justin Bool
+  email: booljayj@gmail.com
+  github: booljayj
 
 # Build settings
 markdown: kramdown
+
+collections:
+  articles:
+    output: true
