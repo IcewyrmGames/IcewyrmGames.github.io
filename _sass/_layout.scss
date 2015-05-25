@@ -234,3 +234,47 @@
         }
     }
 }
+
+
+
+/**
+ * Articles
+ */
+.article-header {
+    margin-bottom: $spacing-unit;
+}
+
+.article-title {
+    font-size: $base-font-size * 2.5;
+    line-height: 1;
+}
+
+.article-author {
+    font-style: italic;
+    color: $grey-color;
+}
+
+.article-content {
+    margin-bottom: $spacing-unit;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 500;
+    }
+
+    h1 {
+        font-size: $base-font-size * 1.75;
+    }
+
+    h2 {
+        font-size: $base-font-size * 1.25;
+    }
+
+    h3 {
+        font-size: $base-font-size * 1.1;
+    }
+
+    h4 {
+        font-size: $base-font-size;
+        font-style: italic;
+    }
+}

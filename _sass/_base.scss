@@ -28,13 +28,12 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
+/* h1, h2, h3, h4, h5, h6, */
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
-
 
 
 /**
@@ -50,12 +49,23 @@ img {
 /**
  * Figures
  */
+figure {
+    background-color: $grey-color-light;
+    padding: $spacing-unit / 2;
+    width: $narrow-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 figure > img {
     display: block;
+    margin: 0 auto 0 auto;
+    max-height: 400px;
 }
 
 figcaption {
     font-size: $small-font-size;
+    text-align: center;
 }
 
 
@@ -111,8 +121,8 @@ blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
+    font-size: $base-font-size;
+    /*letter-spacing: -1px;*/
     font-style: italic;
 
     > :last-child {

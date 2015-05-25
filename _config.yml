@@ -2,7 +2,7 @@
 title: Icewyrm Games Databank
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  A place for information related to Icewyrm Games, and indie
+  A place for information related to Icewyrm Games, an indie
   development studio in Anchorage, Alaska.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://IcewyrmGames.github.io" # the base hostname & protocol for your site
