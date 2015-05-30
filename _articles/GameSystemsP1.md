@@ -2,9 +2,12 @@
 title: Game Systems Part 1
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722022325/http://www.altdev.co/2011/11/12/the-craft-of-game-systems-part-1/
-layout: article
+layout: page
 ---
+* TOC
+{:toc}
 
+# Introduction
 Since this is my first post, I’d like to start with a quick introduction. My name is Daniel Achterman, and I’m a game designer. I’ve been doing gameplay and system design in a variety of genres for about 8 years, mostly RPGs, at companies like Gas Powered Games and ArenaNet. My intention with these pieces is to share specific, practical advice and techniques that game designers can use to create systems, tune content, and simplify their lives.This first piece shares some general guidelines and best practices that I’ve found useful. Future articles will cover topics like experience curves, calculating values for content like item stats and ability damage, and managing large amounts of game data.
 
 If you ever have a question or want to start a conversation, you can reach me in several ways:
@@ -13,7 +16,7 @@ If you ever have a question or want to start a conversation, you can reach me in
 - Send me a message on Twitter: @DanielAchterman
 - Send me an e-mail at DanielAchterman@gmail.com
 
-# What Type of Game Is This Best For?
+## What Type of Game Is This Best For?
 The approach to game design in these articles is analytical and methodical. It’s best suited to games with a lot of content, like RPGs or strategy games. These articles are more about the hour-to-hour experience than the minute-to-minute experience, so they won’t apply to many types of games. My apologies if this material doesn’t directly translate to your work - I hope you can still find them valuable.
 
 # The Hallmarks of Good Systems
