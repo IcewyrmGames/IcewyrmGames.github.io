@@ -1,7 +1,7 @@
 ---
 layout: page
 title: The Craft of Game Systems Part 2
-author: David Ackerman
+author: Daniel Achterman
 source: http://web.archive.org/web/20140722040536/http://www.altdev.co/2011/11/29/the-craft-of-game-systems-part-2/
 ---
 

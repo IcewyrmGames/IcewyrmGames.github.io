@@ -15,6 +15,14 @@
                 {% endif %}
               {% endif %}
             {% endfor %}
+
+            {% for collection in site.collections %}
+              {% if page.collection == collection[0] %}
+              <li class="active"><a href="/{{ collection[0] }}/index.html">{{ collection[0] | capitalize }}</a></li>
+              {% else %}
+              <li><a href="/{{ collection[0] }}/index.html">{{ collection[0] | capitalize }}</a></li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->

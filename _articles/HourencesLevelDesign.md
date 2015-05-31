@@ -6,7 +6,7 @@ source: http://80.lv/articles/10-rules-of-building-great-games-and-levels/
 ---
 
 # The Importance of Planning
-![][Hourences Intro]
+![ ][Hourences Intro]
 <cite>Works of Hourences from his official website (hourences.com) © Hourences, 2015</cite>
 
 I think there are a lot of different and often very good ways to start a level and what you should do depends greatly on the kind of game you want to create something for, your own experience, and so forth. So there’s no ready recipe for that.
@@ -16,7 +16,7 @@ In general the most important thing is to think things through. Properly sit dow
 Whether you plan by just sitting down somewhere and thinking it through, or by drawing a plan, or by using Lego, it doesn’t matter. Just ensure you think it through in detail. Exactly what are you building? What are the potential problems you might face? What will make this special and unique and can you amplify that further?
 
 # Sculpting The Landscape
-![][Hourences Staircase]
+![ ][Hourences Staircase]
 <cite>Works of Hourences from his official website (hourences.com) © Hourences, 2015</cite>
 
 I’ve used World Machine for one of the sections in [The Solus Project (TSP)](http://80.lv/articles/the-solus-project-unreal-engine4-interview/) but it didn’t help too much. Our landscapes are too specific and small for [World Machine](http://80.lv/vendors/world-machine/). I do use World Machine to generate distant mountains and landscape elements though. Works very well for that.
@@ -26,13 +26,13 @@ The way you should build the landscape depends so much on exactly what you build
 I personally start out with nothing more than the landscape and sculpt it until it is about what I had in mind. Then I place the biggest rocks on buildings on top, and continue with sculpting the landscape. These objects give me a better understanding of scale, distance, composition and so forth.
 
 # Style VS Reality
-![][Hourences Asian]
+![ ][Hourences Asian]
 <cite>Works of Hourences from his official website (hourences.com) © Hourences, 2015</cite>
 
 A stylized look can be really cool, I love The [Walking Dead](https://www.telltalegames.com/walkingdead/) for example, but it is not my style. I like keeping it realistic, but at the same time I don’t want to make the real world. There is enough of that around us already, and if you do that you need to do it super well because everyone is going to compare you attempt at realism with what they know of the world. That makes it hard to pull off properly. Going more artistic solves that, and it is more fun also. It gives you a lot more possibilities to create something impressive and memorable.
 
 # Don’t Confuse the Player
-![][Hourences Cave]
+![ ][Hourences Cave]
 <cite>Works of Hourences from his official website (hourences.com) © Hourences, 2015</cite>
 
 I tend to place things carefully. Like a tree that fell down can create a line, a kind of border where it fell, so I will deliberately place these kind of things to create subtle barriers and lines where I need them to guide the players in the right direction. Even if people can just step over said fallen tree, you tend to recognize these kind of lines and borders and change your navigation accordingly.
@@ -94,12 +94,12 @@ On top we have seen the mid tier developers disappear over the last couple of ye
 
 Read the first post in our improvised series [here](http://80.lv/articles/the-solus-project-unreal-engine4-interview/).
 
-[Hourences Intro]: /img/Hourences-Intro.jpg
-[Hourences Staircase]: /img/Hourences-Staircase.jpg
-[Hourences Asian]: /img/Hourences-Asian.jpg
-[Hourences Cave]: /img/Hourences-Cave.jpg
-[Hourences Space]: /img/Hourences-Space.jpg
-[Hourences Factory]: /img/Hourences-Factory.jpg
-[Solus 1]: /img/Hourences-Solus1.jpg
-[Solus 2]: /img/Hourences-Solus2.jpg
-[Solus 3]: /img/Hourences-Solus3.jpg
+[Hourences Intro]: /img/Hourences/Intro.jpg
+[Hourences Staircase]: /img/Hourences/Staircase.jpg
+[Hourences Asian]: /img/Hourences/Asian.jpg
+[Hourences Cave]: /img/Hourences/Cave.jpg
+[Hourences Space]: /img/Hourences/Space.jpg
+[Hourences Factory]: /img/Hourences/Factory.jpg
+[Solus 1]: /img/Hourences/Solus1.jpg
+[Solus 2]: /img/Hourences/Solus2.jpg
+[Solus 3]: /img/Hourences/Solus3.jpg

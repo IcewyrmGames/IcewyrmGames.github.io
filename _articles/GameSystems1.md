@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Game Systems Part 1
+title: The Craft of Game Systems Part 1
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722022325/http://www.altdev.co/2011/11/12/the-craft-of-game-systems-part-1/
 ---
@@ -22,7 +22,7 @@ RPG and strategy games tend to have a ton of content - more than any one person 
 
 From a designer’s perspective, good systems should be five things: comprehensible, consistent, predictable, extensible, and elegant.
 
-![][Vagrant Story]
+![ ][Vagrant Story]
 <cite>This is the Vagrant Story weapon crafting chart. Fun game, but weapon crafting was incredibly obtuse and over-complicated.</cite>
 
 - __Comprehensible.__
@@ -36,7 +36,7 @@ From a designer’s perspective, good systems should be five things: comprehensi
 - __Elegant.__
 	- Elegant systems have a certain ... je ne sais quoi. They create extremely rich situations from a small number of moving parts. Some of my favorite examples of elegant system design are 4th Edition D&D, Magic: the Gathering, and Settlers of Catan.
 
-![][Catan]
+![ ][Catan]
 <cite>The numbers - so simple! But the situations - so interesting!</cite>
 
 # Getting Started: Game Systems Follow Gameplay
@@ -51,7 +51,7 @@ Those are the aspects of your game that players engage with most immediately, so
 
 ## Case Study: Dungeons and Dragons
 
-![][DnD]
+![ ][DnD]
 
 Dungeons and Dragons is about role-playing characters in a fantasy setting and going on adventures with your friends. Teamwork and cooperation are an important part of the experience. Characters perform actions in turn, with the chance of success and results of those actions defined by systems. To make cooperation matter, there are a variety of types of challenges (combat, disarming traps, social interactions) and combat roles (defender, striker, support) that characters can be strong or weak in.
 
@@ -71,11 +71,11 @@ As a systems designer, the above description would direct my work in several way
 - __Content__
 	- Content is all things in your game, including characters, items, monsters, spells, talents, etc. Each type of content has parameters that define it, like damage for a weapon, or  attributes for a character.
 
-![][FF13]
+![ ][FF13]
 
 In this screenshot of Final Fantasy XIII, the content is the monsters, characters, and the weapons they’re using. The parameters are the values for all of their stats that affect combat, such as their health. The damage values when the hero strikes a monster are determined by rules, using the character parameters and some randomization.
 
-![][MTG]
+![ ][MTG]
 
 For a different kind of example, the content in Magic: the Gathering is the cards. Each card in the game represents a noun that players can summon, like a creature or land, or an action that players can perform, like casting a spell. The rules define the different types of cards and how they function. This creature’s special abilities also fall under rules, as does its “Creature” type, as that defines its functionality in the game’s rules. The creature type, costs, stats, and ability values are all parameters.
 

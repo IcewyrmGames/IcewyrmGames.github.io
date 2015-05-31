@@ -20,3 +20,7 @@ markdown: kramdown
 collections:
   articles:
     output: true
+  research:
+    output: true
+  examples:
+    output: true
