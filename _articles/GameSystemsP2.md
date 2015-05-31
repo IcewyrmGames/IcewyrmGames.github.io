@@ -105,3 +105,7 @@ _Ian Schrieber_ ([@IanSchreiber](https://twitter.com/#!/IanSchreiber)) wrote an 
 
 If you have an article to recommend, please add it to the comments, e-mail me, or send me a message on Twitter (@DanielAchterman).
 
+[LOZ]: /img/GameSystems/LOZ.png
+[Linear]: /img/GameSystems/Linear.png
+[Polynomial]: /img/GameSystems/Polynomial.png
+[Exponential]: /img/GameSystems/Exponential.png

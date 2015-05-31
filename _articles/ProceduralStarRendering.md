@@ -15,7 +15,7 @@ If you don't give a damn about the blog and want to just see the result, [click 
 # Step 1: Sphere
 As in the [gas giant blog](https://www.seedofandromeda.com/blogs/49-procedural-gas-giant-rendering-with-gpu-noise), we will start with a simple icosphere mesh. You should create a testbed for creating your star renderer. Here I am showing the distance in KM and [AU](http://en.wikipedia.org/wiki/Astronomical_unit), as well as the surface temperature of the star in [Kelvin](http://en.wikipedia.org/wiki/Kelvin). I chose 5,778K for the temperature, and 696,000KM for the star radius, which are the same values of the sun.
 
-![][S1 Sphere]
+![][sphere]
 
 # Step 2: Granules
 Lets focus on the surface of the star for now. Stars have [granules](http://en.wikipedia.org/wiki/Granule_%28solar_physics%29) that are caused by convection currents. We can easily render granules with a bit of GPU noise, just like we did in the gas giant blog. I'm going to use four octaves in the fragment shader and output to color. The reason I am adding 1.0 and multiplying by 0.5 is to scale the noise output to the range (0, 1) instead of (-1, 1). Notice that I am using unDT as the fourth component into our 4D noise, which makes the star change over time.
@@ -27,7 +27,7 @@ Lets focus on the surface of the star for now. Stars have [granules](http://en.w
     float total = n;
     pColor = vec4(total, total, total, 1.0);
 
-![][S2 Granules]
+![][noise]
 
 Not bad! It doesn't look exactly like granules, but its close enough. Further tweaking could undoubtedly make it look much better, but users typically won't even see these granules since the star is so bright.
 
@@ -49,13 +49,13 @@ Let's try using only 2 samples of noise as a threshold, similarly to how we did 
     // Accumulate total noise
     float total = n - ss;
 
-![][S3 Sunspots]
+![][sunspots]
 Seems reasonable enough. This seems like a fairly good looking star surface, but it's not the right color! Let's fix that using physics!
 
 # Step 4: Color
 The color of a star depends on its temperature. The cooler a star is, the redder it is. The hotter a star is, the bluer it is. This happens according to [blackbody radiation](http://en.wikipedia.org/wiki/Black-body_radiation). What we need to do is look up the color for our star in a 1D texture, where the U coordinate (the X coordinate) of the texture corresponds to the temperature in kelvin. The left side of the texture is 800K, and the right side is 30,000K. Since we are going to use the same color for the whole star, we can actually compute this on the CPU as an optimization and pass it in as a uniform. Otherwise you can use a texture lookup in the shader. Here is the texture that Georg made:
 
-![][S4 Color]
+![][star_spectrum_3]
 
 Getting the X coordinate in the texture from temperature is as easy as:
 
@@ -63,8 +63,8 @@ Getting the X coordinate in the texture from temperature is as easy as:
 
 Let's look at a few examples of the different colors at different temperatures:
 
-![][S4 Star 1]
-![][S4 Star 2]
+![][color1]
+![][color2]
 
 Well, the color matches, but shouldn't stars be... brighter? Yes!
 
@@ -79,7 +79,7 @@ As temperature gets hotter, the stars should also get brighter. We can simulate 
 
 Notice that the RGB components aren't shifted equally. Let's take a look at our original star:
 
-![][S5 Brightness]
+![][shifted]
 
 Well... it IS bright... Why is it solid white? Because we can only display colors in the range of (0,1) but we are shifting it past 1.0 at high temperatures! After about 4,300K the star looks solid white. However, this is desirable, as in real life when you look at stars, you pretty much just go blind. To properly view the features of the stars surface, a black color filter (basically sunshades) is needed, which we will add later.
 
@@ -88,7 +88,7 @@ The [corona](http://en.wikipedia.org/wiki/Corona) is a huge aura of extremely ho
 
 To do this, we will render a [3D billboard](http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/billboards/) that is centered on the star, and use noise in a shader to make the corona effect. I am using a billboard that is 3x the diameter of the star (Edit: 4x is probably better). I zoomed out in the below image to show the proportions. We want to keep the billboard as small as possible without chopping off the corona so that we minimize fragment shader overhead.
 
-![][S6 Corona]
+![][billboard]
 
 The billboard quad should have vertex positions on the range of (-1, 1) that get scaled in the vertex shader. Transform the unscaled vertex positions so that they are facing the camera in world space, and then pass them to the fragment shader as the fPosition input. We will use fPosition for our noise. Of course you should scale gl_Position by the size of the billboard, but don't scale fPosition!
 
@@ -99,6 +99,8 @@ Let's start by just making a fading glow for the corona that fades according to 
     float brightness = (1.0 / (dist * dist) - 0.1) * 0.7;
 
 I'm using a little magic with the constants to get it to look like I want, you can tweak this formula however you wish. Here's the result when outputting brightness to color:
+
+![][brightness]
 
 Now that we have a fade, we can apply some noise to try to get it to look like a real corona. The key is to use noise to offset the position that you use when doing the distance calculation. However, we can't use noise with the fPosition, or it will look stupid. Instead we should use the normalized position as the input parameter for our noise. I am using 4D noise so that time can be the 4th parameter. I am always using white for corona color, since the corona is always extremely hot, even hotter than the surface of the star.
 
@@ -112,7 +114,7 @@ Now that we have a fade, we can apply some noise to try to get it to look like a
     float dist = length(position) * 3.0;
     float brightness = (1.0 / (dist * dist) - 0.1) * 0.7;
 
-![][S6 Corona Lines]
+![][coronaStreaks]
 
 We're getting somewhere with this, but it would be nice if the streaks were wobbly instead of straight. Let's try offsetting the input position for the normalization with 3 noise samples, one for each axis.
 
@@ -125,14 +127,55 @@ We're getting somewhere with this, but it would be nice if the streaks were wobb
     // Get the distance vector from the center
     vec3 nDistVec = normalize(fPosition + vec3(ox, oy, oz) * 0.25);
 
-![][S6 Corona Curves]
+![][corona]
 
 Looks good enough to me! More tweaking could produce better results, as always.
+
+## EDIT (April 29 2015)
+Just kidding, that corona looks terrible! Not only does the corona not expand outward over time, but it just doesn't look anything like the real thing. Lets look at a real corona image:
+
+![][solar_eclipse]
+
+The real thing is sort of fuzzy looking, and over time the plasma should move away from the surface instead of just randomly boiling around.
+
+Let's start by making the plasma move outward from the surface of the star. Right now, we use unDT as our time variable to make the plasma change over time. Luckily, it's as easy as subtracting radial distance from time! Instead of using unDT everywhere, we will use a new variable t.
+
+    float t = unDT - length(fPosition);
+
+length(fPosition) will get the distance of the pixel from the center of the star. Since we are subtracting it, pixels that are further from the center will be further back in time. With the way we have our math structured so far, this causes the plasma to appear to move outward.
+
+I also made some tweaks to our noise to make it more fuzzy.
+
+    // Offset normal with noise
+    float frequency = 1.5;
+    float ox = snoise(vec4(fPosition, t) * frequency);
+    float oy = snoise(vec4((fPosition + 2000.0), t) * frequency);
+    float oz = snoise(vec4((fPosition + 4000.0), t) * frequency);
+    // Store offsetVec since we want to use it twice.
+    vec3 offsetVec = vec3(ox, oy, oz) * 0.1;
+
+    // Get the distance vector from the center
+    vec3 nDistVec = normalize(fPosition + offsetVec);
+
+    // Get noise with normalized position to offset the original position
+    vec3 position = fPosition + noise(vec4(nDistVec, t), 5, 2.0, 0.7) * 0.1;
+
+Notice that this time I am storing the vec3(ox, oy, oz) * 0.1, that's because I want to use it again! Anyways, first let's look at what we have now ( I blacked out the sun so it looks like an eclipse):
+
+![][new_corona1]
+
+That looks a lot like the wikipedia image! But personally I think its just a bit to perfectly round. Lets reuse the offsetVec we created when calculating the distance to modulate the distance of each pixel a bit:
+
+    float dist = length(position + offsetVec) * 3.0;
+
+![][new_corona2]
+
+Another cheap and subtle effect that makes a huge difference! [See the finished product in action here!](https://www.youtube.com/watch?v=REDKCg7P9t4)
 
 # Step 7: Lens Glow
 This could also be called lens flare but there's a separate section for that. I am going to call this lens glow for lack of a better word. First thing we need is a good texture. Below is the texture that Andreas Ressl and Georg Hammershmid made. If you want to steal it, remember to credit them somewhere!
 
-![][S7 Glow 1]
+![][star_glow]
 
 This glow texture is displayed as a [fixed size 3D billboard](http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/billboards/) centered on the star. The size of this billboard is dependent on the distance from the star as well as the stars temperature and diameter. We approximate the luminosity of the star by comparing our temperature and diameter to that of the sun, since we know the luminosity, diameter, and temperature of the sun. This can of course be tweaked if you want smaller or larger glow.
 
@@ -161,17 +204,17 @@ It looks great and makes blending easier for lens glow and lens flare.
 
 Now lets see how it looks!
 
-![][S7 Glow 2]
+![][glow1]
 
 Looks great! Notice that I am zoomed really far out. However, look at what a blue star looks like (zoomed out even further):
 
-![][S7 Glow Blue 1]
+![][blueglow1]
 
 That doesn't look right! It should be white at the center and then fade out to blue. To solve this, we used 3 color maps instead of 1 for glow color, and we fade between them based on the greyscale value of the original glow texture using bilinear filtering.
 
-![][S7 Color 1]
-![][S7 Color 2]
-![][S7 Color 3]
+![][star_spectrum_12]
+![][star_spectrum_2]
+![][star_spectrum_31]
 
 I stacked these three textures on top of each other, and duplicated the last texture to make a 512x4 texture. In the Lens Glow shader, I calculated the V texture coordinate (Y coordinate) as follows:
 
@@ -179,7 +222,7 @@ I stacked these three textures on top of each other, and duplicated the last tex
 
 And of course the U coordinate is the same U coordinate we calculated before with temperature. Now let's look at that same blue star:
 
-![][S7 Glow Blue 2]
+![][bluestar2]
 
 That looks a lot better, but there's even more we can do! We can randomly generate some extra spikes and change them as the view changes so that we get a sort of shimmering flicker effect. Note that unNoiseZ is a uniform that is passed in. You can calculate unNoiseZ as some function of the angle of the camera, or as dot product of the direction vector with itself plus the dot product of the right vector with itself, or something equally hacky.
 
@@ -193,14 +236,14 @@ That looks a lot better, but there's even more we can do! We can randomly genera
 
     texColor.rgb += spikeBrightness;
 
-![][S7 Glow Spikes]
+![][glowspikes]
 
 It's subtle, but it makes a difference!
 
 # Step 8: Screenspace Lens Flare
 Now for the awesomeness that is lens flare. We want a fast and cheap lens flare effect that gets calculated in screen space. The fragment shader will just apply color to the lens flare textures, you can use any old textures you find online. Here's a crappy texture sheet that I stole from Space Engine that you can probably use.
 
-![][S8 Flare Tex]
+![][lens_flares]
 
 To render the flare, you should create a buffer of quads of varying sizes with varying flare textures that are all centered about the origin. Each quad should have an offset variable as a vertex attribute that gets used to offset the flare in screen space. The offset can be negative, which will cause flares to go in the opposite direction. For modability, we specify our flare in a YAML file:
 
@@ -265,7 +308,7 @@ We will offset the quads starting from the center of the star, towards the direc
 
 And here is the result:
 
-![][S8 Flare]
+![][lensflare]
 
 You can easily tweak the lens flare by adding more flare types with varying sizes.
 
@@ -324,7 +367,7 @@ We found that HDR rendering actually makes the lens glow look worse, so we didn'
 # Step 11: Color Filter for Star Viewing
 Since we made stars realistic, you can't view them up close; they are just too bright. However, if we are using HDR, we can render a grey filter over the entire screen onto the HDR framebuffer at the end of our rendering pipeline. We will use normal alpha blending, and it will reduce the intensity of color across the screen. Here is a side by side of no grey filter, and a grey filter that is a fullscreen quad of color (0.0, 0.0, 0.0, 0.9).
 
-![][S11 Filter]
+![][sidebyside]
 
 Note that without HDR, since the star surface colors would be clamped at 1.0, the image would be much darker and you would not be able to see any visible details.
 
@@ -334,31 +377,12 @@ The stars look a bit too flat right now, but we can easily darken the edges by c
     float theta = 1.0 - dot(unCenterDir, fPosition);
     pColor = vec4(unColor + total - theta, 1.0);
 
-![][S12 Depth]
+![][darken]
 
 Ahhh... much better.
 
 # Conclusion
 You should have a fairly decent star renderer after following all of this. As always there is still more work that can be done to improve it, and if you have any suggestions or questions be sure to leave them in the comments! Check out the video embedded below to see the renderer in action. I have made a few additions in this video that are not detailed above, but it should look mostly the same.
 
-[S1 Sphere]: /img/ProcStar-S1Sphere.jpg
-[S2 Granules]: /img/ProcStar-S2Granules.jpg
-[S3 Sunspots]: /img/ProcStar-S3Sunspots.jpg
-[S4 Star 1]: /img/ProcStar-S4Star1.jpg
-[S4 Star 2]: /img/ProcStar-S4Star2.jpg
-[S5 Brightness]: /img/ProcStar-S5Brightness.jpg
-[S6 Corona]: /img/ProcStar-S6Corona.jpg
-[S6 Corona Lines]: /img/ProcStar-S6CoronaLines.jpg
-[S6 Corona Curves]: /img/ProcStar-S6CoronaCurves.jpg
-[S7 Glow 1]: /img/ProcStar-S7Glow1.jpg
-[S7 Glow 2]: /img/ProcStar-S7Glow2.jpg
-[S7 Glow Blue 1]: /img/ProcStar-S7GlowBlue1.jpg
-[S7 Color 1]: /img/ProcStar-S7Color1.jpg
-[S7 Color 2]: /img/ProcStar-S7Color2.jpg
-[S7 Color 3]: /img/ProcStar-S7Color3.jpg
-[S7 Glow Blue 2]: /img/ProcStar-S7GlowBlue2.jpg
-[S7 Glow Spikes]: /img/ProcStar-S7GlowSpikes.jpg
-[S8 Flare Tex]: /img/ProcStar-S8FlareTex.jpg
-[S8 Flare]: /img/ProcStar-S8Flare.jpg
-[S11 Filter]: /img/ProcStar-S11Filter.jpg
-[S12 Depth]: /img/ProcStar-S12Depth.jpg
+[youtube link](https://youtu.be/zSzpzCGtCkQ)
+

@@ -1,11 +1,9 @@
 ---
+layout: page
 title: Game Systems Part 1
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722022325/http://www.altdev.co/2011/11/12/the-craft-of-game-systems-part-1/
-layout: page
 ---
-* TOC
-{:toc}
 
 # Introduction
 Since this is my first post, I’d like to start with a quick introduction. My name is Daniel Achterman, and I’m a game designer. I’ve been doing gameplay and system design in a variety of genres for about 8 years, mostly RPGs, at companies like Gas Powered Games and ArenaNet. My intention with these pieces is to share specific, practical advice and techniques that game designers can use to create systems, tune content, and simplify their lives.This first piece shares some general guidelines and best practices that I’ve found useful. Future articles will cover topics like experience curves, calculating values for content like item stats and ability damage, and managing large amounts of game data.
@@ -24,7 +22,8 @@ RPG and strategy games tend to have a ton of content - more than any one person 
 
 From a designer’s perspective, good systems should be five things: comprehensible, consistent, predictable, extensible, and elegant.
 
-{% include image.html src="/img/gamesystems-vagrantstory.jpg" text="This is the Vagrant Story weapon crafting chart. Fun game, but weapon crafting was incredibly obtuse and over-complicated." %}
+![][Vagrant Story]
+<cite>This is the Vagrant Story weapon crafting chart. Fun game, but weapon crafting was incredibly obtuse and over-complicated.</cite>
 
 - __Comprehensible.__
 	- You, the designer, should understand all the parts of your system. You should know how you choose various values in your game, why you do it that way, and what other rules and content those values impact. If you want to adjust your gameplay in a specific way, you should know what to change to get that result.
@@ -37,12 +36,14 @@ From a designer’s perspective, good systems should be five things: comprehensi
 - __Elegant.__
 	- Elegant systems have a certain ... je ne sais quoi. They create extremely rich situations from a small number of moving parts. Some of my favorite examples of elegant system design are 4th Edition D&D, Magic: the Gathering, and Settlers of Catan.
 
-{% include image.html src="/img/gamesystems-catan.jpg" text="The numbers - so simple! But the situations - so interesting!" %}
+![][Catan]
+<cite>The numbers - so simple! But the situations - so interesting!</cite>
 
 # Getting Started: Game Systems Follow Gameplay
 Creating a game’s systems and content is an intimidating task. It can seem like there will be a million variables in the game, and before you can start figuring out how they’ll relate to each other, you have to choose which ones your game will have in the first place. What stats will your game characters have? What will increase on level up? What types of upgrades can characters get? Items? Resources? Experience values? Gold costs? It’s overwhelming.
 
-> “Begin with the end in mind.” - Stephen Covey
+> “Begin with the end in mind.”
+> <cite>- Stephen Covey</cite>
 
 The first step is to clarify the game you’re making. While systems are the foundation of how a game works, they shouldn’t be the starting point of its design. You might have a great idea for how mana regeneration will work in your game, or how leveling will be affected by weapon types. Leave those ideas aside for now, and instead ask yourself: What is the core game loop? What interesting decisions will players be making? What are the appeals you intend your game to have?
 
@@ -50,7 +51,7 @@ Those are the aspects of your game that players engage with most immediately, so
 
 ## Case Study: Dungeons and Dragons
 
-{% include image.html src="/img/gamesystems-dnd.jpg" %}
+![][DnD]
 
 Dungeons and Dragons is about role-playing characters in a fantasy setting and going on adventures with your friends. Teamwork and cooperation are an important part of the experience. Characters perform actions in turn, with the chance of success and results of those actions defined by systems. To make cooperation matter, there are a variety of types of challenges (combat, disarming traps, social interactions) and combat roles (defender, striker, support) that characters can be strong or weak in.
 
@@ -70,11 +71,11 @@ As a systems designer, the above description would direct my work in several way
 - __Content__
 	- Content is all things in your game, including characters, items, monsters, spells, talents, etc. Each type of content has parameters that define it, like damage for a weapon, or  attributes for a character.
 
-{% include image.html src="/img/gamesystems-ffxiii.jpg" %}
+![][FF13]
 
 In this screenshot of Final Fantasy XIII, the content is the monsters, characters, and the weapons they’re using. The parameters are the values for all of their stats that affect combat, such as their health. The damage values when the hero strikes a monster are determined by rules, using the character parameters and some randomization.
 
-{% include image.html src="/img/gamesystems-mtg.jpg" %}
+![][MTG]
 
 For a different kind of example, the content in Magic: the Gathering is the cards. Each card in the game represents a noun that players can summon, like a creature or land, or an action that players can perform, like casting a spell. The rules define the different types of cards and how they function. This creature’s special abilities also fall under rules, as does its “Creature” type, as that defines its functionality in the game’s rules. The creature type, costs, stats, and ability values are all parameters.
 
@@ -95,3 +96,9 @@ My next article will cover this process in more detail and offer guidelines for 
 Much of game design is an art. The quality of content and the appeal of various design choices are subjective and vary from player to player. Good system design is more of a craft. Game systems are a tool that designers use for creating and tweaking content. In terms of ease of tweaking and resistance to degenerate cases in games, some system designs are objectively superior to others.
 
 I adore investigating game systems. I love seeing how designers organize their data, reverse engineering their content progressions, and trying to figure out why they used the formulas they did. I hope you enjoyed this introduction, and I’m looking forward to sharing more techniques and examples soon. Please let me know what you think in the comments!
+
+[Vagrant Story]: /img/GameSystems/Vagrant.jpg
+[Catan]: /img/GameSystems/Catan.jpg
+[DnD]: /img/GameSystems/DnD.jpg
+[FF13]: /img/GameSystems/FF13.jpg
+[MTG]: /img/GameSystems/MTG.jpg
