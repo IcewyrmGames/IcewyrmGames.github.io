@@ -15,7 +15,7 @@ author:
   github: booljayj
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 
 collections:
   articles:

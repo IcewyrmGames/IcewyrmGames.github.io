@@ -1,4 +1,4 @@
-{% assign docs = site.collections[include.collection].docs %}
+{% assign docs = site.collections.research.docs | sort: "weight", "last" %}
 {% for d in docs %}{% if d.title %}
 	{% if d.url == page.url %}
 	<a href="{{ d.url }}" class="list-group-item active">

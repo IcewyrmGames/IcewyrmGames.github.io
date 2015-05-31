@@ -20,12 +20,14 @@ As in the [gas giant blog](https://www.seedofandromeda.com/blogs/49-procedural-g
 # Step 2: Granules
 Lets focus on the surface of the star for now. Stars have [granules](http://en.wikipedia.org/wiki/Granule_%28solar_physics%29) that are caused by convection currents. We can easily render granules with a bit of GPU noise, just like we did in the gas giant blog. I'm going to use four octaves in the fragment shader and output to color. The reason I am adding 1.0 and multiplying by 0.5 is to scale the noise output to the range (0, 1) instead of (-1, 1). Notice that I am using unDT as the fourth component into our 4D noise, which makes the star change over time.
 
-    vec4 position = vec4(fPosition, unDT);
+``` glsl
+vec4 position = vec4(fPosition, unDT);
 
-    float n = (noise(position , 4, 40.0, 0.7) + 1.0) * 0.5;
+float n = (noise(position , 4, 40.0, 0.7) + 1.0) * 0.5;
 
-    float total = n;
-    pColor = vec4(total, total, total, 1.0);
+float total = n;
+pColor = vec4(total, total, total, 1.0);
+```
 
 ![][noise]
 
@@ -36,18 +38,20 @@ Stars have [sunspots](http://en.wikipedia.org/wiki/Sunspot), which are dark spot
 
 Let's try using only 2 samples of noise as a threshold, similarly to how we did storms in the gas giant blog.
 
-    // Get worldspace position
-    vec4 sPosition = position * unRadius;
+``` glsl
+// Get worldspace position
+vec4 sPosition = position * unRadius;
 
-    // Sunspots
-    float s = 0.3;
-    float frequency = 0.00001;
-    float t1 = snoise(sPosition * frequency) - s;
-    float t2 = snoise((sPosition + unRadius) * frequency) - s;
-    float ss = (max(t1, 0.0) * max(t2, 0.0)) * 2.0;
+// Sunspots
+float s = 0.3;
+float frequency = 0.00001;
+float t1 = snoise(sPosition * frequency) - s;
+float t2 = snoise((sPosition + unRadius) * frequency) - s;
+float ss = (max(t1, 0.0) * max(t2, 0.0)) * 2.0;
 
-    // Accumulate total noise
-    float total = n - ss;
+// Accumulate total noise
+float total = n - ss;
+```
 
 ![][sunspots]
 Seems reasonable enough. This seems like a fairly good looking star surface, but it's not the right color! Let's fix that using physics!
@@ -59,7 +63,9 @@ The color of a star depends on its temperature. The cooler a star is, the redder
 
 Getting the X coordinate in the texture from temperature is as easy as:
 
-    float u = (temperature - 800.0f) / 29200.0f;
+``` glsl
+float u = (temperature - 800.0f) / 29200.0f;
+```
 
 Let's look at a few examples of the different colors at different temperatures:
 
@@ -71,11 +77,13 @@ Well, the color matches, but shouldn't stars be... brighter? Yes!
 # Step 5: Color Shift
 As temperature gets hotter, the stars should also get brighter. We can simulate this by shifting the color of the stars based on temperature. Georg came up with this magic formula for realistic color shifting for RGB on the range of (0, 1).
 
-    glm::vec3 getTempColorShift(float temperature) {
-        return  glm::vec3(temperature * (0.0534 / 255.0) - (43.0 / 255.0),
-            temperature * (0.0628 / 255.0) - (77.0 / 255.0),
-            temperature * (0.0735 / 255.0) - (115.0 / 255.0));
-    }
+```
+glm::vec3 getTempColorShift(float temperature) {
+    return  glm::vec3(temperature * (0.0534 / 255.0) - (43.0 / 255.0),
+        temperature * (0.0628 / 255.0) - (77.0 / 255.0),
+        temperature * (0.0735 / 255.0) - (115.0 / 255.0));
+}
+```
 
 Notice that the RGB components aren't shifted equally. Let's take a look at our original star:
 
@@ -94,9 +102,11 @@ The billboard quad should have vertex positions on the range of (-1, 1) that get
 
 Let's start by just making a fading glow for the corona that fades according to the inverse square of distance.
 
-    // Calculate brightness based on distance
-    float dist = length(fPosition) * 3.0;
-    float brightness = (1.0 / (dist * dist) - 0.1) * 0.7;
+``` glsl
+// Calculate brightness based on distance
+float dist = length(fPosition) * 3.0;
+float brightness = (1.0 / (dist * dist) - 0.1) * 0.7;
+```
 
 I'm using a little magic with the constants to get it to look like I want, you can tweak this formula however you wish. Here's the result when outputting brightness to color:
 
@@ -104,28 +114,32 @@ I'm using a little magic with the constants to get it to look like I want, you c
 
 Now that we have a fade, we can apply some noise to try to get it to look like a real corona. The key is to use noise to offset the position that you use when doing the distance calculation. However, we can't use noise with the fPosition, or it will look stupid. Instead we should use the normalized position as the input parameter for our noise. I am using 4D noise so that time can be the 4th parameter. I am always using white for corona color, since the corona is always extremely hot, even hotter than the surface of the star.
 
-    // Get the distance vector from the center
-    vec3 nDistVec = normalize(fPosition);
+``` glsl
+// Get the distance vector from the center
+vec3 nDistVec = normalize(fPosition);
 
-    // Get noise with normalized position to offset the original position
-    vec3 position = fPosition + noise(vec4(nDistVec, unDT), 3, 3.0, 0.7) * 0.5;
+// Get noise with normalized position to offset the original position
+vec3 position = fPosition + noise(vec4(nDistVec, unDT), 3, 3.0, 0.7) * 0.5;
 
-    // Calculate brightness based on distance
-    float dist = length(position) * 3.0;
-    float brightness = (1.0 / (dist * dist) - 0.1) * 0.7;
+// Calculate brightness based on distance
+float dist = length(position) * 3.0;
+float brightness = (1.0 / (dist * dist) - 0.1) * 0.7;
+```
 
 ![][coronaStreaks]
 
 We're getting somewhere with this, but it would be nice if the streaks were wobbly instead of straight. Let's try offsetting the input position for the normalization with 3 noise samples, one for each axis.
 
-    // Offset normal with noise
-    float freqency = 0.8;
-    float ox = snoise(vec4(fPosition * freqency, unDT));
-    float oy = snoise(vec4((fPosition + 2000.0) * freqency, unDT));
-    float oz = snoise(vec4((fPosition + 4000.0) * freqency, unDT));
+``` glsl
+// Offset normal with noise
+float freqency = 0.8;
+float ox = snoise(vec4(fPosition * freqency, unDT));
+float oy = snoise(vec4((fPosition + 2000.0) * freqency, unDT));
+float oz = snoise(vec4((fPosition + 4000.0) * freqency, unDT));
 
-    // Get the distance vector from the center
-    vec3 nDistVec = normalize(fPosition + vec3(ox, oy, oz) * 0.25);
+// Get the distance vector from the center
+vec3 nDistVec = normalize(fPosition + vec3(ox, oy, oz) * 0.25);
+```
 
 ![][corona]
 
@@ -140,25 +154,29 @@ The real thing is sort of fuzzy looking, and over time the plasma should move aw
 
 Let's start by making the plasma move outward from the surface of the star. Right now, we use unDT as our time variable to make the plasma change over time. Luckily, it's as easy as subtracting radial distance from time! Instead of using unDT everywhere, we will use a new variable t.
 
-    float t = unDT - length(fPosition);
+``` glsl
+float t = unDT - length(fPosition);
+```
 
 length(fPosition) will get the distance of the pixel from the center of the star. Since we are subtracting it, pixels that are further from the center will be further back in time. With the way we have our math structured so far, this causes the plasma to appear to move outward.
 
 I also made some tweaks to our noise to make it more fuzzy.
 
-    // Offset normal with noise
-    float frequency = 1.5;
-    float ox = snoise(vec4(fPosition, t) * frequency);
-    float oy = snoise(vec4((fPosition + 2000.0), t) * frequency);
-    float oz = snoise(vec4((fPosition + 4000.0), t) * frequency);
-    // Store offsetVec since we want to use it twice.
-    vec3 offsetVec = vec3(ox, oy, oz) * 0.1;
+``` glsl
+// Offset normal with noise
+float frequency = 1.5;
+float ox = snoise(vec4(fPosition, t) * frequency);
+float oy = snoise(vec4((fPosition + 2000.0), t) * frequency);
+float oz = snoise(vec4((fPosition + 4000.0), t) * frequency);
+// Store offsetVec since we want to use it twice.
+vec3 offsetVec = vec3(ox, oy, oz) * 0.1;
 
-    // Get the distance vector from the center
-    vec3 nDistVec = normalize(fPosition + offsetVec);
+// Get the distance vector from the center
+vec3 nDistVec = normalize(fPosition + offsetVec);
 
-    // Get noise with normalized position to offset the original position
-    vec3 position = fPosition + noise(vec4(nDistVec, t), 5, 2.0, 0.7) * 0.1;
+// Get noise with normalized position to offset the original position
+vec3 position = fPosition + noise(vec4(nDistVec, t), 5, 2.0, 0.7) * 0.1;
+```
 
 Notice that this time I am storing the vec3(ox, oy, oz) * 0.1, that's because I want to use it again! Anyways, first let's look at what we have now ( I blacked out the sun so it looks like an eclipse):
 
@@ -166,7 +184,9 @@ Notice that this time I am storing the vec3(ox, oy, oz) * 0.1, that's because I 
 
 That looks a lot like the wikipedia image! But personally I think its just a bit to perfectly round. Lets reuse the offsetVec we created when calculating the distance to modulate the distance of each pixel a bit:
 
-    float dist = length(position + offsetVec) * 3.0;
+``` glsl
+float dist = length(position + offsetVec) * 3.0;
+```
 
 ![][new_corona2]
 
@@ -179,26 +199,32 @@ This could also be called lens flare but there's a separate section for that. I 
 
 This glow texture is displayed as a [fixed size 3D billboard](http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/billboards/) centered on the star. The size of this billboard is dependent on the distance from the star as well as the stars temperature and diameter. We approximate the luminosity of the star by comparing our temperature and diameter to that of the sun, since we know the luminosity, diameter, and temperature of the sun. This can of course be tweaked if you want smaller or larger glow.
 
-    double calculateGlowSize(double diameter, double temperature, double distance) {
-        static const double DSUN = 1392684.0;
-        static const double TSUN = 5778.0;
+``` glsl
+double calculateGlowSize(double diameter, double temperature, double distance) {
+    static const double DSUN = 1392684.0;
+    static const double TSUN = 5778.0;
 
-        // Georg's magic formula
-        double d = distance; // Distance
-        double D = diameter * DSUN;
-        double L = (D * D) * pow(temperature / TSUN, 4.0); // Luminosity
-        return 0.016 * pow(L, 0.25) / pow(d, 0.5); // Size
-    }
+    // Georg's magic formula
+    double d = distance; // Distance
+    double D = diameter * DSUN;
+    double L = (D * D) * pow(temperature / TSUN, 4.0); // Luminosity
+    return 0.016 * pow(L, 0.25) / pow(d, 0.5); // Size
+}
+```
 
 This is used to calculate the size of the glow in screen space. Be sure to take the aspect ratio into account when sending the dimensions uniform for your billboard. For instance:
 
-    glm::vec2 dims(size, size * aspectRatio);
+``` glsl
+glm::vec2 dims(size, size * aspectRatio);
+```
 
 For the color, pass in the non-shifted color as calculated from the temperature.
 
 Edit: Also, if you use additive blending with:
 
-    glBlendFunc(GL_ONE, GL_ONE);
+``` glsl
+glBlendFunc(GL_ONE, GL_ONE);
+```
 
 It looks great and makes blending easier for lens glow and lens flare.
 
@@ -218,7 +244,9 @@ That doesn't look right! It should be white at the center and then fade out to b
 
 I stacked these three textures on top of each other, and duplicated the last texture to make a 512x4 texture. In the Lens Glow shader, I calculated the V texture coordinate (Y coordinate) as follows:
 
-    float texV = 1.0 - texColor.r + 0.125;
+``` glsl
+float texV = 1.0 - texColor.r + 0.125;
+```
 
 And of course the U coordinate is the same U coordinate we calculated before with temperature. Now let's look at that same blue star:
 
@@ -226,15 +254,17 @@ And of course the U coordinate is the same U coordinate we calculated before wit
 
 That looks a lot better, but there's even more we can do! We can randomly generate some extra spikes and change them as the view changes so that we get a sort of shimmering flicker effect. Note that unNoiseZ is a uniform that is passed in. You can calculate unNoiseZ as some function of the angle of the camera, or as dot product of the direction vector with itself plus the dot product of the right vector with itself, or something equally hacky.
 
-    vec2 nDistVec = normalize(fPosition);
-    float spikeVal = snoise(vec3(nDistVec, unNoiseZ) * 15.5) + 0.2;
+``` glsl
+vec2 nDistVec = normalize(fPosition);
+float spikeVal = snoise(vec3(nDistVec, unNoiseZ) * 15.5) + 0.2;
 
-    float dist = length(fPosition);
+float dist = length(fPosition);
 
-    float spikeBrightness = ((1.0 / pow(dist + 0.15, 0.5)) - 1.0);
-    spikeBrightness = spikeBrightness * 0.02 * clamp(spikeVal, 0.0, 1.0);
+float spikeBrightness = ((1.0 / pow(dist + 0.15, 0.5)) - 1.0);
+spikeBrightness = spikeBrightness * 0.02 * clamp(spikeVal, 0.0, 1.0);
 
-    texColor.rgb += spikeBrightness;
+texColor.rgb += spikeBrightness;
+```
 
 ![][glowspikes]
 
@@ -247,64 +277,68 @@ Now for the awesomeness that is lens flare. We want a fast and cheap lens flare 
 
 To render the flare, you should create a buffer of quads of varying sizes with varying flare textures that are all centered about the origin. Each quad should have an offset variable as a vertex attribute that gets used to offset the flare in screen space. The offset can be negative, which will cause flares to go in the opposite direction. For modability, we specify our flare in a YAML file:
 
-    intensity: 0.2 #gets used for unIntensity
-    sprites:
-      - offset: 1.0
-        size: 1.3
-        textureIndex: 1
-      - offset: 1.25
-        size: 1.0
-        textureIndex: 1
-      - offset: 1.1
-        size: 1.75
-        textureIndex: 0
-      - offset: 1.5
-        size: 0.65
-        textureIndex: 0
-      - offset: 1.6
-        size: 0.9
-        textureIndex: 0
-      - offset: 1.7
-        size: 0.45
-        textureIndex: 0
+``` yaml
+intensity: 0.2 #gets used for unIntensity
+sprites:
+  - offset: 1.0
+    size: 1.3
+    textureIndex: 1
+  - offset: 1.25
+    size: 1.0
+    textureIndex: 1
+  - offset: 1.1
+    size: 1.75
+    textureIndex: 0
+  - offset: 1.5
+    size: 0.65
+    textureIndex: 0
+  - offset: 1.6
+    size: 0.9
+    textureIndex: 0
+  - offset: 1.7
+    size: 0.45
+    textureIndex: 0
+```
 
 We will offset the quads starting from the center of the star, towards the direction of the center of the screen. Here is the entire vertex shader. It should be pretty self explanatory. Note that we square the vOffset.
 
-    // Uniforms
-    uniform mat4 unVP;
-    uniform vec3 unCenter;
-    uniform vec2 unDims;
-    uniform float unIntensity;
+``` glsl
+// Uniforms
+uniform mat4 unVP;
+uniform vec3 unCenter;
+uniform vec2 unDims;
+uniform float unIntensity;
 
-    // Input
-    in vec2 vPosition;
-    in vec2 vUV;
-    in float vOffset;
+// Input
+in vec2 vPosition;
+in vec2 vUV;
+in float vOffset;
 
-    // Output
-    out vec2 fPosition;
-    out vec2 fUV;
-    out float fIntensity;
+// Output
+out vec2 fPosition;
+out vec2 fUV;
+out float fIntensity;
 
-    void main() {
-        fUV = vUV;
-        fPosition = vPosition;
+void main() {
+    fUV = vUV;
+    fPosition = vPosition;
 
-        // Fixed size billboard
-        // Get the screen-space position of the center
-        gl_Position = unVP * vec4(unCenter, 1.0);
-        gl_Position /= gl_Position.w;
+    // Fixed size billboard
+    // Get the screen-space position of the center
+    gl_Position = unVP * vec4(unCenter, 1.0);
+    gl_Position /= gl_Position.w;
 
-        // Get the vector from the star position to the center
-        vec2 centerPos = gl_Position.xy;
-        vec2 offsetVec = vec2(0.0) - centerPos;
+    // Get the vector from the star position to the center
+    vec2 centerPos = gl_Position.xy;
+    vec2 offsetVec = vec2(0.0) - centerPos;
 
-        // Calculate the intensity, which is basically the alpha
-        fIntensity = max(0.0, 1.0 - length(offsetVec) / 1.0) * unIntensity;
+    // Calculate the intensity, which is basically the alpha
+    fIntensity = max(0.0, 1.0 - length(offsetVec) / 1.0) * unIntensity;
 
-        // Move the vertex in screen space.
-        gl_Position.xy += vPosition * unDims + offsetVec * pow(vOffset, 2.0) * 0.5;
-    }
+    // Move the vertex in screen space.
+    gl_Position.xy += vPosition * unDims + offsetVec * pow(vOffset, 2.0) * 0.5;
+}
+```
 
 And here is the result:
 
@@ -319,48 +353,52 @@ A single query will tell us how many pixels passed, but we also need to know how
 
 Enough blabbering, here's some code.
 
-    // Update queries from previous frame, or create the query objects if needed
+``` glsl
+// Update queries from previous frame, or create the query objects if needed
 
-    if (star.occlusionQuery[0] == 0) {
-        glGenQueries(2, star.occlusionQuery);
+if (star.occlusionQuery[0] == 0) {
+    glGenQueries(2, star.occlusionQuery);
+} else {
+    int totalSamples = 0;
+    int passedSamples= 0;
+    glGetQueryObjectiv(star.occlusionQuery[0], GL_QUERY_RESULT, &totalSamples );
+    glGetQueryObjectiv(star.occlusionQuery[1], GL_QUERY_RESULT, &passedSamples);
+    if (passedSamples== 0) {
+        star.visibility = 0.0f;
     } else {
-        int totalSamples = 0;
-        int passedSamples= 0;
-        glGetQueryObjectiv(star.occlusionQuery[0], GL_QUERY_RESULT, &totalSamples );
-        glGetQueryObjectiv(star.occlusionQuery[1], GL_QUERY_RESULT, &passedSamples);
-        if (passedSamples== 0) {
-            star.visibility = 0.0f;
-        } else {
-            star.visibility = glm::min(1.0f, (float)passedSamples/ (float)totalSamples);
-        }
+        star.visibility = glm::min(1.0f, (float)passedSamples/ (float)totalSamples);
     }
+}
 
-    ...  // Bind your VBO and set up your shader and such
+...  // Bind your VBO and set up your shader and such
 
-    // Disable depth write
-    glDepthMask(GL_FALSE);
+// Disable depth write
+glDepthMask(GL_FALSE);
 
-    // Query for passed samples
-    glBeginQuery(GL_SAMPLES_PASSED, star.occlusionQuery[0]);
-    glDisable(GL_DEPTH_TEST);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0);
-    glEnable(GL_DEPTH_TEST);
-    glEndQuery(GL_SAMPLES_PASSED);
+// Query for passed samples
+glBeginQuery(GL_SAMPLES_PASSED, star.occlusionQuery[0]);
+glDisable(GL_DEPTH_TEST);
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0);
+glEnable(GL_DEPTH_TEST);
+glEndQuery(GL_SAMPLES_PASSED);
 
-    // Query for total samples
-    glBeginQuery(GL_SAMPLES_PASSED, star.occlusionQuery[1]);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0);
-    glEndQuery(GL_SAMPLES_PASSED);
+// Query for total samples
+glBeginQuery(GL_SAMPLES_PASSED, star.occlusionQuery[1]);
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, 0);
+glEndQuery(GL_SAMPLES_PASSED);
 
-    // Re-enable depth write
-    glDepthMask(GL_TRUE);
+// Re-enable depth write
+glDepthMask(GL_TRUE);
+```
 
 # Step 10: HDR Rendering and Gamma
 Since we are creating colors that are > 1.0 in our star, they are just getting clamped to 1.0 and we are losing information. If we instead render stars to a 16 bit or 32 bit floating point color buffer and use [HDR rendering](http://en.wikipedia.org/wiki/High-dynamic-range_rendering), we can get slightly more attractive results and not lose any information, which is important for the color filter step. While were at it, we might as well add [gamma correction](http://http.developer.nvidia.com/GPUGems3/gpugems3_ch24.html) as well. You can use any tone mapping operator for HDR, but here is our fragment shader code for HDR and gamma correction. We use 3.0 for unExposure and 1.0 / 0.5 for unGamma.
 
-    color = 1.0 - exp(color * -unExposure); // HDR exposure
-    color = pow(color, vec3(unGamma)); // Gamma correction
-    pColor = vec4(color, 1.0);
+``` glsl
+color = 1.0 - exp(color * -unExposure); // HDR exposure
+color = pow(color, vec3(unGamma)); // Gamma correction
+pColor = vec4(color, 1.0);
+```
 
 We found that HDR rendering actually makes the lens glow look worse, so we didn't apply HDR to the glow.
 
@@ -374,8 +412,10 @@ Note that without HDR, since the star surface colors would be clamped at 1.0, th
 # Step 12: Darken Edges for Apparent Depth
 The stars look a bit too flat right now, but we can easily darken the edges by computing the angle between the ray to the center and the position on the normalized sphere. Pass in the normalized camera relative position of the star as unCenterDir. If it looks wrong, try negating unCenterDir, as it could just be a sign issue.
 
-    float theta = 1.0 - dot(unCenterDir, fPosition);
-    pColor = vec4(unColor + total - theta, 1.0);
+``` glsl
+float theta = 1.0 - dot(unCenterDir, fPosition);
+pColor = vec4(unColor + total - theta, 1.0);
+```
 
 ![][darken]
 
@@ -384,5 +424,31 @@ Ahhh... much better.
 # Conclusion
 You should have a fairly decent star renderer after following all of this. As always there is still more work that can be done to improve it, and if you have any suggestions or questions be sure to leave them in the comments! Check out the video embedded below to see the renderer in action. I have made a few additions in this video that are not detailed above, but it should look mostly the same.
 
-[youtube link](https://youtu.be/zSzpzCGtCkQ)
+{% include youtube.html video="zSzpzCGtCkQ" %}
 
+[sphere]: /img/ProcStar/sphere.jpg
+[noise]: /img/ProcStar/noise.jpg
+[sunspots]: /img/ProcStar/sunspots.jpg
+[star_spectrum_3]: /img/ProcStar/star_spectrum_3.png
+[color1]: /img/ProcStar/color1.jpg
+[color2]: /img/ProcStar/color2.jpg
+[shifted]: /img/ProcStar/shifted.jpg
+[billboard]: /img/ProcStar/billboard.jpg
+[brightness]: /img/ProcStar/brightness.jpg
+[coronaStreaks]: /img/ProcStar/coronaStreaks.jpg
+[corona]: /img/ProcStar/corona.jpg
+[solar_eclipse]: /img/ProcStar/solar_eclipse.jpg
+[new_corona1]: /img/ProcStar/new_corona1.jpg
+[new_corona2]: /img/ProcStar/new_corona2.jpg
+[star_glow]: /img/ProcStar/star_glow.jpg
+[glow1]: /img/ProcStar/glow1.jpg
+[blueglow1]: /img/ProcStar/blueglow1.jpg
+[star_spectrum_12]: /img/ProcStar/star_spectrum_12.png
+[star_spectrum_2]: /img/ProcStar/star_spectrum_2.png
+[star_spectrum_31]: /img/ProcStar/star_spectrum_31.png
+[bluestar2]: /img/ProcStar/bluestar2.jpg
+[glowspikes]: /img/ProcStar/glowspikes.jpg
+[lens_flares]: /img/ProcStar/lens_flares.jpg
+[lensflare]: /img/ProcStar/lensflare.jpg
+[sidebyside]: /img/ProcStar/sidebyside.jpg
+[darken]: /img/ProcStar/darken.jpg

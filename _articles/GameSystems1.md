@@ -3,6 +3,7 @@ layout: page
 title: The Craft of Game Systems Part 1
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722022325/http://www.altdev.co/2011/11/12/the-craft-of-game-systems-part-1/
+weight: 0
 ---
 
 # Introduction
@@ -25,16 +26,11 @@ From a designer’s perspective, good systems should be five things: comprehensi
 ![ ][Vagrant Story]
 <cite>This is the Vagrant Story weapon crafting chart. Fun game, but weapon crafting was incredibly obtuse and over-complicated.</cite>
 
-- __Comprehensible.__
-	- You, the designer, should understand all the parts of your system. You should know how you choose various values in your game, why you do it that way, and what other rules and content those values impact. If you want to adjust your gameplay in a specific way, you should know what to change to get that result.
-- __Consistent.__
-	- Your game rules and content should function the same in all areas of your game. Armor shouldn’t work differently for flying units, and the formula for gold value of items shouldn’t change at high levels. This is a big part of making your game comprehensible to you.
-- __Predictable.__
-	- You should be able to determine how your systems will behave in new circumstances. If you multiply experience gained by 2 in some situation, or introduce a monster with double the normal armor, you should be able to predict the results. Using simple progressions and formulas helps make predictable systems.
-- __Extensible.__
-	- When you create new types of content for your game, you should be able to easily extend your existing systems to include it. Maybe you decide what your game really needs is randomly generated minibosses. You should be able to extend your existing monster content to include them easily. Extensibility makes it easier to design your game iteratively, adding new systems and content types as they are needed.
-- __Elegant.__
-	- Elegant systems have a certain ... je ne sais quoi. They create extremely rich situations from a small number of moving parts. Some of my favorite examples of elegant system design are 4th Edition D&D, Magic: the Gathering, and Settlers of Catan.
+- __Comprehensible__ -- You, the designer, should understand all the parts of your system. You should know how you choose various values in your game, why you do it that way, and what other rules and content those values impact. If you want to adjust your gameplay in a specific way, you should know what to change to get that result.
+- __Consistent__ -- Your game rules and content should function the same in all areas of your game. Armor shouldn’t work differently for flying units, and the formula for gold value of items shouldn’t change at high levels. This is a big part of making your game comprehensible to you.
+- __Predictable__ -- You should be able to determine how your systems will behave in new circumstances. If you multiply experience gained by 2 in some situation, or introduce a monster with double the normal armor, you should be able to predict the results. Using simple progressions and formulas helps make predictable systems.
+- __Extensible__ -- When you create new types of content for your game, you should be able to easily extend your existing systems to include it. Maybe you decide what your game really needs is randomly generated minibosses. You should be able to extend your existing monster content to include them easily. Extensibility makes it easier to design your game iteratively, adding new systems and content types as they are needed.
+- __Elegant__ -- Elegant systems have a certain ... je ne sais quoi. They create extremely rich situations from a small number of moving parts. Some of my favorite examples of elegant system design are 4th Edition D&D, Magic: the Gathering, and Settlers of Catan.
 
 ![ ][Catan]
 <cite>The numbers - so simple! But the situations - so interesting!</cite>
@@ -43,7 +39,7 @@ From a designer’s perspective, good systems should be five things: comprehensi
 Creating a game’s systems and content is an intimidating task. It can seem like there will be a million variables in the game, and before you can start figuring out how they’ll relate to each other, you have to choose which ones your game will have in the first place. What stats will your game characters have? What will increase on level up? What types of upgrades can characters get? Items? Resources? Experience values? Gold costs? It’s overwhelming.
 
 > “Begin with the end in mind.”
-> <cite>- Stephen Covey</cite>
+> <cite>-- Stephen Covey</cite>
 
 The first step is to clarify the game you’re making. While systems are the foundation of how a game works, they shouldn’t be the starting point of its design. You might have a great idea for how mana regeneration will work in your game, or how leveling will be affected by weapon types. Leave those ideas aside for now, and instead ask yourself: What is the core game loop? What interesting decisions will players be making? What are the appeals you intend your game to have?
 
@@ -64,12 +60,9 @@ As a systems designer, the above description would direct my work in several way
 # The Components of Game Systems
 “Game Systems” or “Mechanics” can be broken down into three components: Parameters, Rules, and Content.
 
-- __Parameters__
-	- Parameters are the values that your game systems use to simulate your game, such as health, movement speed, weight, mana cost, critical hit chance, etc.
-- __Rules__
-	- Rules are the functions and formulas that determine the results of actions and events in your game. Rules include things like how combat damage is calculated, how character statistics change when they level up, and how random loot is determined.
-- __Content__
-	- Content is all things in your game, including characters, items, monsters, spells, talents, etc. Each type of content has parameters that define it, like damage for a weapon, or  attributes for a character.
+- __Parameters__ -- Parameters are the values that your game systems use to simulate your game, such as health, movement speed, weight, mana cost, critical hit chance, etc.
+- __Rules__ -- Rules are the functions and formulas that determine the results of actions and events in your game. Rules include things like how combat damage is calculated, how character statistics change when they level up, and how random loot is determined.
+- __Content__ -- Content is all things in your game, including characters, items, monsters, spells, talents, etc. Each type of content has parameters that define it, like damage for a weapon, or  attributes for a character.
 
 ![ ][FF13]
 

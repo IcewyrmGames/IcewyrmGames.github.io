@@ -3,10 +3,14 @@ img {
 	@extend .img-thumbnail;
 	@extend .clearfix;
 
-	min-width: 400px;
+	min-width: 20px;
 	max-width: 700px;
-	min-height: 10px;
+	min-height: 20px;
 	max-height: 600px;
+}
+
+cite {
+	display: block;
 }
 
 img + cite {
@@ -15,4 +19,8 @@ img + cite {
 
 	text-align: center;
 	max-width: 600px;
+}
+
+iframe {
+	@extend .center-block;
 }

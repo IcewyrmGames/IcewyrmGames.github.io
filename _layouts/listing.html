@@ -8,6 +8,6 @@ layout: default
 		<div class="panel-heading">
 			<h1>{{ page.collection | capitalize }}</h1>
 		</div>
-		{% include collection-list.html collection=page.collection headers=true %}
+		{% include listing-{{page.collection}}.html headers=true %}
 	</div>
 </div>

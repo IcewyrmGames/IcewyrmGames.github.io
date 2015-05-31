@@ -8,7 +8,9 @@ layout: default
 	</div>
 
 	<nav class="col-md-3 list-group">
-		{% include collection-list.html collection=page.collection %}
+		{% if page.collection %}
+		{% include listing-{{page.collection}}.html %}
+		{% endif %}
 	</nav>
 
 </div>
