@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Procedural Star Rendering
 author: some guy, ya know?
 source: https://www.seedofandromeda.com/blogs/51-procedural-star-rendering
@@ -426,29 +426,29 @@ You should have a fairly decent star renderer after following all of this. As al
 
 {% include youtube.html video="zSzpzCGtCkQ" %}
 
-[sphere]: /img/ProcStar/sphere.jpg
-[noise]: /img/ProcStar/noise.jpg
-[sunspots]: /img/ProcStar/sunspots.jpg
-[star_spectrum_3]: /img/ProcStar/star_spectrum_3.png
-[color1]: /img/ProcStar/color1.jpg
-[color2]: /img/ProcStar/color2.jpg
-[shifted]: /img/ProcStar/shifted.jpg
-[billboard]: /img/ProcStar/billboard.jpg
-[brightness]: /img/ProcStar/brightness.jpg
-[coronaStreaks]: /img/ProcStar/coronaStreaks.jpg
-[corona]: /img/ProcStar/corona.jpg
-[solar_eclipse]: /img/ProcStar/solar_eclipse.jpg
-[new_corona1]: /img/ProcStar/new_corona1.jpg
-[new_corona2]: /img/ProcStar/new_corona2.jpg
-[star_glow]: /img/ProcStar/star_glow.jpg
-[glow1]: /img/ProcStar/glow1.jpg
-[blueglow1]: /img/ProcStar/blueglow1.jpg
-[star_spectrum_12]: /img/ProcStar/star_spectrum_12.png
-[star_spectrum_2]: /img/ProcStar/star_spectrum_2.png
-[star_spectrum_31]: /img/ProcStar/star_spectrum_31.png
-[bluestar2]: /img/ProcStar/bluestar2.jpg
-[glowspikes]: /img/ProcStar/glowspikes.jpg
-[lens_flares]: /img/ProcStar/lens_flares.jpg
-[lensflare]: /img/ProcStar/lensflare.jpg
-[sidebyside]: /img/ProcStar/sidebyside.jpg
-[darken]: /img/ProcStar/darken.jpg
+[sphere]: ./sphere.jpg
+[noise]: ./noise.jpg
+[sunspots]: ./sunspots.jpg
+[star_spectrum_3]: ./star_spectrum_3.png
+[color1]: ./color1.jpg
+[color2]: ./color2.jpg
+[shifted]: ./shifted.jpg
+[billboard]: ./billboard.jpg
+[brightness]: ./brightness.jpg
+[coronaStreaks]: ./coronaStreaks.jpg
+[corona]: ./corona.jpg
+[solar_eclipse]: ./solar_eclipse.jpg
+[new_corona1]: ./new_corona1.jpg
+[new_corona2]: ./new_corona2.jpg
+[star_glow]: ./star_glow.jpg
+[glow1]: ./glow1.jpg
+[blueglow1]: ./blueglow1.jpg
+[star_spectrum_12]: ./star_spectrum_12.png
+[star_spectrum_2]: ./star_spectrum_2.png
+[star_spectrum_31]: ./star_spectrum_31.png
+[bluestar2]: ./bluestar2.jpg
+[glowspikes]: ./glowspikes.jpg
+[lens_flares]: ./lens_flares.jpg
+[lensflare]: ./lensflare.jpg
+[sidebyside]: ./sidebyside.jpg
+[darken]: ./darken.jpg

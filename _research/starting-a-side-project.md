@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: article
 title: Starting a Side Project
 author: Adam Engels
 source: http://www.gamasutra.com/blogs/AdamEngels/20150507/242877/Tips_for_Starting_Your_Side_Project.php
+priority: 2
 ---
 
 # Introduction
@@ -49,6 +50,6 @@ Us at Black Mesa NEVER imagined we would be where we are today. If it weren’t 
 
 Black Mesa is now available on [Steam Early Access for $19.99](http://store.steampowered.com/app/362890). We are currently working on Xen because we know how much people want those chapters. Please be patient with us while we focus our efforts on getting them done!
 
-[HL1-1]: /img/SideProj/HL1-1.jpg
-[HL1-2]: /img/SideProj/HL1-2.jpg
-[Files]: /img/SideProj/Files.jpg
+[HL1-1]: ./HL1-1.jpg
+[HL1-2]: ./HL1-2.jpg
+[Files]: ./Files.jpg

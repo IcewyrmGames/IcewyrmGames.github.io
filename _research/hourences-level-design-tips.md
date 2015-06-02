@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Hourences Level Design Tips
 author: Sjoerd De Jong (Hourences)
 source: http://80.lv/articles/10-rules-of-building-great-games-and-levels/
@@ -94,12 +94,12 @@ On top we have seen the mid tier developers disappear over the last couple of ye
 
 Read the first post in our improvised series [here](http://80.lv/articles/the-solus-project-unreal-engine4-interview/).
 
-[Hourences Intro]: /img/Hourences/Intro.jpg
-[Hourences Staircase]: /img/Hourences/Staircase.jpg
-[Hourences Asian]: /img/Hourences/Asian.jpg
-[Hourences Cave]: /img/Hourences/Cave.jpg
-[Hourences Space]: /img/Hourences/Space.jpg
-[Hourences Factory]: /img/Hourences/Factory.jpg
-[Solus 1]: /img/Hourences/Solus1.jpg
-[Solus 2]: /img/Hourences/Solus2.jpg
-[Solus 3]: /img/Hourences/Solus3.jpg
+[Hourences Intro]: ./Intro.jpg
+[Hourences Staircase]: ./Staircase.jpg
+[Hourences Asian]: ./Asian.jpg
+[Hourences Cave]: ./Cave.jpg
+[Hourences Space]: ./Space.jpg
+[Hourences Factory]: ./Factory.jpg
+[Solus 1]: ./Solus1.jpg
+[Solus 2]: ./Solus2.jpg
+[Solus 3]: ./Solus3.jpg

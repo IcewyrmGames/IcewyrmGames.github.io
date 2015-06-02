@@ -1,4 +1,4 @@
-img {
+p img {
 	@extend .center-block;
 	@extend .img-thumbnail;
 	@extend .clearfix;
@@ -23,4 +23,20 @@ img + cite {
 
 iframe {
 	@extend .center-block;
+}
+
+.priority-1 {
+	border-left: 4px solid red;
+}
+
+.priority-2 {
+	border-left: 4px solid orange;
+}
+
+.priority-3 {
+	border-left: 4px solid yellow;
+}
+
+.priority-4 {
+	border-left: 4px solid yellowgreen;
 }

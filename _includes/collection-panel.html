@@ -1,0 +1,10 @@
+{% assign docs = site.collections.[page.collection].docs | sort: "priority", "last" %}
+<div class="panel-heading">
+		<h3>{{ page.collection | capitalize }}</h3>
+</div>
+{% for d in docs %}{% if d.title %}
+<a href="{{ d.url }}" class="list-group-item{% if d.priority %} priority-{{ d.priority }}{% endif %}">
+	<h4>{{ d.title }}</h4>
+	<p>{{ d.author }}</p>
+</a>
+{% endif %}{% endfor %}

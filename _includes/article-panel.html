@@ -1,16 +1,14 @@
-<article class="panel panel-default">
-	<header class="panel-heading">
-		<h1>{{ page.title }}</h1>
-		{% if page.author %}<cite>By {{ page.author }}</cite>{% endif %}
-	</header>
+<header class="panel-heading">
+	<h1>{{ page.title }}</h1>
+	{% if page.author %}<cite>By {{ page.author }}</cite>{% endif %}
+</header>
 
-	<section class="panel-body">
-		{{ content }}
-	</section>
+<section class="panel-body">
+	{{ content }}
+</section>
 
-	{% if page.source %}
-	<footer class="panel-footer">
-		<p>From: <a href="{{ page.source }}">{{ page.source }}</a></p>
-	</footer>
-	{% endif %}
-</article>
+{% if page.source %}
+<footer class="panel-footer">
+	<p>From: <a href="{{ page.source }}">{{ page.source }}</a></p>
+</footer>
+{% endif %}

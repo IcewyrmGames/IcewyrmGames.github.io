@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: article
 title: The Craft of Game Systems Part 1
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722022325/http://www.altdev.co/2011/11/12/the-craft-of-game-systems-part-1/
-weight: 0
+priority: 1
 ---
 
 # Introduction
@@ -90,8 +90,8 @@ Much of game design is an art. The quality of content and the appeal of various 
 
 I adore investigating game systems. I love seeing how designers organize their data, reverse engineering their content progressions, and trying to figure out why they used the formulas they did. I hope you enjoyed this introduction, and I’m looking forward to sharing more techniques and examples soon. Please let me know what you think in the comments!
 
-[Vagrant Story]: /img/GameSystems/Vagrant.jpg
-[Catan]: /img/GameSystems/Catan.jpg
-[DnD]: /img/GameSystems/DnD.jpg
-[FF13]: /img/GameSystems/FF13.jpg
-[MTG]: /img/GameSystems/MTG.jpg
+[Vagrant Story]: ./Vagrant.jpg
+[Catan]: ./Catan.jpg
+[DnD]: ./DnD.jpg
+[FF13]: ./FF13.jpg
+[MTG]: ./MTG.jpg

@@ -1,9 +1,9 @@
 ---
-layout: page
+layout: article
 title: The Craft of Game Systems Part 2
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722040536/http://www.altdev.co/2011/11/29/the-craft-of-game-systems-part-2/
-weight: 0
+priority: 1
 ---
 
 # Introduction
@@ -106,7 +106,7 @@ _Ian Schrieber_ ([@IanSchreiber](https://twitter.com/#!/IanSchreiber)) wrote an 
 
 If you have an article to recommend, please add it to the comments, e-mail me, or send me a message on Twitter (@DanielAchterman).
 
-[LOZ]: /img/GameSystems/LOZ.png
-[Linear]: /img/GameSystems/Linear.png
-[Polynomial]: /img/GameSystems/Polynomial.png
-[Exponential]: /img/GameSystems/Exponential.png
+[LOZ]: ./LOZ.png
+[Linear]: ./Linear.png
+[Polynomial]: ./Polynomial.png
+[Exponential]: ./Exponential.png

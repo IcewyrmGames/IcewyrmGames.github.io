@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Funding Your Game Startup
 author: Burak Tezateser
 source: http://gamasutra.com/blogs/BurakTezateser/20150512/242814/Funding_your_game_startup.php
@@ -170,7 +170,7 @@ You should combine various methods wisely to optimize your cash flow and profit
 
 As last words, I am quite sure there are things I forgot to mention and other things that I misinterpreted. Please correct me as well whenever you think I am too subjective. Looking forward to receive your help to improve and edit this article in time.
 
-[Dilbert1]: /img/Funding/Dilbert1.jpg
-[Dilbert2]: /img/Funding/Dilbert2.jpg
-[Dilbert3]: /img/Funding/Dilbert3.jpg
-[Dilbert4]: /img/Funding/Dilbert4.jpg
+[Dilbert1]: ./Dilbert1.jpg
+[Dilbert2]: ./Dilbert2.jpg
+[Dilbert3]: ./Dilbert3.jpg
+[Dilbert4]: ./Dilbert4.jpg

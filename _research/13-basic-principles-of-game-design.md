@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: 13 Basic Principles of Game Design
 author: Matt Allmer
 source: http://www.gamasutra.com/view/feature/132341/the_13_basic_principles_of_.php
@@ -205,5 +205,5 @@ Punching can be fun but when the camera shakes on impact, it's even more fun.
 # Conclusion
 So, there you have it. These principles have noticeably improved my designs and forced me to think of components from all angles. I thoroughly believe they will give you an edge on all those impatient carts. So, stick that in your horse and race it!
 
-[Train]: /img/13Principles/Train.jpg
-[Aliens]: /img/13Principles/Aliens.jpg
+[Train]: ./Train.jpg
+[Aliens]: ./Aliens.jpg

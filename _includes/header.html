@@ -1,29 +1,19 @@
 <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
-        </div>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    </div>
 
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            {% for spage in site.pages %}
-              {% if spage.title %}
-                {% if spage.title == page.title %}
-                <li class="active"><a href="{{ spage.url | prepend: site.baseurl }}">{{ spage.title }}</a></li>
-                {% else %}
-                <li><a href="{{ spage.url | prepend: site.baseurl }}">{{ spage.title }}</a></li>
-                {% endif %}
-              {% endif %}
-            {% endfor %}
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        {% for spage in site.pages %}{% if spage.title %}
+        <li{% if spage.url == page.url %} class="active"{% endif %}><a href="{{ spage.url | prepend: site.baseurl }}">{{ spage.title }}</a></li>
+        {% endif %}{% endfor %}
 
-            {% for collection in site.collections %}
-              {% if page.collection == collection[0] %}
-              <li class="active"><a href="/{{ collection[0] }}/index.html">{{ collection[0] | capitalize }}</a></li>
-              {% else %}
-              <li><a href="/{{ collection[0] }}/index.html">{{ collection[0] | capitalize }}</a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div><!--/.container-fluid -->
-    </nav>
+        {% for collection in site.collections %}
+        <li{% if page.collection == collection[0] %} class="active"{% endif %}><a href="/{{ collection[0] }}/index/"><span class="glyphicon glyphicon-list" style="width:20px;"></span>{{ collection[0] | capitalize }}</a></li>
+        {% endfor %}
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>

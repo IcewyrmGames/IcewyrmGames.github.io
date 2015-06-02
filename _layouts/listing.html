@@ -1,13 +1,4 @@
 ---
-layout: default
+layout: page
 ---
-<div class="col-md-1"></div>
-
-<div class="col-md-10">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h1>{{ page.collection | capitalize }}</h1>
-		</div>
-		{% include listing-{{page.collection}}.html headers=true %}
-	</div>
-</div>
+{% include collection-panel.html %}

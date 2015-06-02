@@ -14,13 +14,16 @@ author:
   email: booljayj@gmail.com
   github: booljayj
 
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
 # Build settings
 markdown: redcarpet
 
 collections:
-  articles:
-    output: true
   research:
     output: true
+    permalink: /:collection/:title/
   examples:
     output: true
+    permalink: /:collection/:title/

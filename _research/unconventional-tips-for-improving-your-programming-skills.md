@@ -119,15 +119,15 @@ So what do you think makes you a better programmer? Do you have any weird habits
 
 Thanks for reading.
 
-[Intro]: /img/ProgTipsIntro.jpg
-[Hydrated]: /img/ProgTipsHydrated.jpg
-[Break]: /img/ProgTipsBreak.jpg
-[Pump]: /img/ProgTipsPump.jpg
-[Work]: /img/ProgTipsWork.jpg
-[Think]: /img/ProgTipsThink.jpg
-[Document]: /img/ProgTipsDocument.jpg
-[Notes]: /img/ProgTipsNotes.jpg
-[Shortcuts]: /img/ProgTipsShortcuts.jpg
-[Clean]: /img/ProgTipsClean.jpg
-[Debug]: /img/ProgTipsDebug.jpg
-[Predict]: /img/ProgTipsPredict.jpg
+[Intro]: ./Intro.jpg
+[Hydrated]: ./Hydrated.jpg
+[Break]: ./Break.jpg
+[Pump]: ./Pump.jpg
+[Work]: ./Work.jpg
+[Think]: ./Think.jpg
+[Document]: ./Document.jpg
+[Notes]: ./Notes.jpg
+[Shortcuts]: ./Shortcuts.jpg
+[Clean]: ./Clean.jpg
+[Debug]: ./Debug.jpg
+[Predict]: ./Predict.jpg

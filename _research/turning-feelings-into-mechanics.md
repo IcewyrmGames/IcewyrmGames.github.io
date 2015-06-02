@@ -141,15 +141,15 @@ KickstarterDemoWebsite
 
 ![][Elsewhere Logo]
 
-[Apartment Intro]: /img/ApartmentIntro.jpg
-[Apartment Definition]: /img/ApartmentDefinition.jpg
-[Apartment Silhouette]: /img/ApartmentSilhouette.jpg
-[Apartment Novel]: /img/ApartmentNovel.jpg
-[Apartment Interruption]: /img/ApartmentInterruption.jpg
-[Apartment Hallway]: /img/ApartmentHallway.jpg
-[Apartment Wraith]: /img/ApartmentWraith.jpg
-[Apartment Bathtub]: /img/ApartmentBathtub.jpg
-[Apartment I miss it]: /img/ApartmentIMissIt.gif
-[Apartment Road and Tree]: /img/ApartmentRoadAndTree.jpg
-[Apartment come back William]: /img/ApartmentComeBackWilliam.gif
-[Elsewhere Logo]: /img/ElsewhereLogo.jpg
+[Apartment Intro]: ./Intro.jpg
+[Apartment Definition]: ./Definition.jpg
+[Apartment Silhouette]: ./Silhouette.jpg
+[Apartment Novel]: ./Novel.jpg
+[Apartment Interruption]: ./Interruption.jpg
+[Apartment Hallway]: ./Hallway.jpg
+[Apartment Wraith]: ./Wraith.jpg
+[Apartment Bathtub]: ./Bathtub.jpg
+[Apartment I miss it]: ./IMissIt.gif
+[Apartment Road and Tree]: ./RoadAndTree.jpg
+[Apartment come back William]: ./ComeBackWilliam.gif
+[Elsewhere Logo]: ./Logo.jpg
