@@ -4,7 +4,7 @@
 		  <span class="glyphicon glyphicon-th-list" style="width:20px"></span><span class="lead">Index</span>
 	</a>
 	{% for post in site.posts limit: 20 %}
-	<a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item">
+	<a href="{{ post.url | prepend: site.baseurl }}" class="list-group-item">
 		<span class="center-block">{{ post.title }}</span>
 		<small>{{ post.date | date: "%b %-d, %Y" }}</small>
 	</a>
