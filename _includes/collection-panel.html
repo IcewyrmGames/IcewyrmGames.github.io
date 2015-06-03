@@ -1,10 +1,19 @@
-{% assign docs = site.collections.[page.collection].docs | sort: "priority", "last" %}
-<div class="panel-heading">
-		<h3>{{ page.collection | capitalize }}</h3>
-</div>
-{% for d in docs %}{% if d.title %}
-<a href="{{ d.url }}" class="list-group-item{% if d.priority %} priority-{{ d.priority }}{% endif %}">
-	<h4>{{ d.title }}</h4>
-	<p>{{ d.author }}</p>
-</a>
-{% endif %}{% endfor %}
+{% assign collection = site.collections.[page.collection].docs | sort: "priority", "last" | group_by: "category" %}
+<nav class="panel panel-primary">
+	<div class="list-group-item">
+		<span class="lead">{{ page.collection | capitalize}}</span>
+	</div>
+</nav>
+{% for group in collection %}
+<nav class="panel panel-default">
+	<div class="panel-heading">
+		{% if group.name %}<h1 class="panel-title">{{ group.name | capitalize }}</h1>{% endif %}
+	</div>
+	{% for d in group.items %}{% if d.title %}
+	<a href="{{ d.url | prepend: site.baseurl }}" class="list-group-item{% if d.priority %} priority-{{ d.priority }}{% endif %}">
+		<h4 class="lead" style="margin-bottom: 0px;">{{ d.title }}</h4>
+		<p>By {{ d.author }}</p>
+	</a>
+	{% endif %}{% endfor %}
+</nav>
+{% endfor %}

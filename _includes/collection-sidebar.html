@@ -1,11 +1,11 @@
 {% assign collection = site.collections.[page.collection].docs | sort: "priority", "last" | group_by: "category" %}
-<div class="panel panel-default" style="margin-left: -15px;">
+<nav class="panel panel-default" style="margin-left: -15px;">
 	<a href="/{{ page.collection | prepend: site.baseurl }}/index/" class="list-group-item">
-		  <span class="lead">Index</span>
+		  <span class="glyphicon glyphicon-list" style="width:20px"></span><span class="lead">Index</span>
 	</a>
-</div>
+</nav>
 {% for group in collection %}
-<div class="panel panel-default" style="margin-left: -15px;">
+<nav class="panel panel-default" style="margin-left: -15px;">
 	<div class="panel-heading">
 		{% if group.name %}<h1 class="panel-title">{{ group.name | capitalize }}</h1>{% endif %}
 	</div>
@@ -14,5 +14,5 @@
 		{{ d.title }}
 	</a>
 	{% endif %}{% endfor %}
-</div>
+</nav>
 {% endfor %}

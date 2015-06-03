@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Procedural Star Rendering
-author: some guy, ya know?
+author: Seed of Andromeda
 source: https://www.seedofandromeda.com/blogs/51-procedural-star-rendering
 ---
 

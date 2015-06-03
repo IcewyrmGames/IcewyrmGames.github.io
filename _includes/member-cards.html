@@ -1,4 +1,5 @@
-{% for member in site.data.members | sort: "name" %}
+{% assign members = site.data.members | sort: "sortname" %}
+{% for member in members %}
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
 		<img src="/img/{{ member.name | slugify }}.jpg" class="width: 100%" >

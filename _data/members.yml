@@ -1,13 +1,21 @@
 - name: Justin Bool
-  bio: "my name is Justing, I do some programming, and i like wideo games!"
+  sortname: bool
+  bio: "my name ees Justing, I do some programming, and i like the wideo games!"
   github: booljayj
   email: booljayj@gmail.com
 
 - name: Nancy Leigh
+  sortname: leigh
   bio: "Nancy, nancy, bo-bancy. Banana bana fo-fancy. Fee-fi-mo-mancy. NAAAANCY!"
 
 - name: Calli Rabe
+  sortname: rabe
+  bio: "Bio here"
 
 - name: Kyra Sherwood
+  sortname: sherwood
+  bio: "Bio here"
 
 - name: Aura Mael
+  sortname: mael
+  bio: "Bio here"

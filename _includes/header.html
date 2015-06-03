@@ -5,15 +5,16 @@
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/About/"><span class="glyphicon glyphicon-user" style="width:20px;"></span> About</a>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-        {% for spage in site.pages %}{% if spage.title %}
-        <li{% if spage.url == page.url %} class="active"{% endif %}><a href="{{ spage.url | prepend: site.baseurl }}">{{ spage.title }}</a></li>
-        {% endif %}{% endfor %}
-
         {% for collection in site.collections %}
         <li{% if page.collection == collection[0] %} class="active"{% endif %}><a href="/{{ collection[0] }}/index/"><span class="glyphicon glyphicon-list" style="width:20px;"></span>{{ collection[0] | capitalize }}</a></li>
         {% endfor %}
       </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container-fluid -->
+    </div>
+  </div>
 </nav>
