@@ -5,6 +5,7 @@ author: Matt Allmer
 source: http://www.gamasutra.com/view/feature/132341/the_13_basic_principles_of_.php
 ---
 
+# Introduction
 Gameplay design is chaotic and full of frustrations and contradictions. More often than not, the request is to come up with something guaranteed to be successful. This condition steers solutions towards the established -- which means solutions that have been done before.
 
 But in the same breath, the product must separate itself from the competition or stand out in some way. This immediately pulls the designer in conflicting directions.

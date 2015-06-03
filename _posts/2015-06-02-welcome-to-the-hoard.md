@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Welcome to the Hoard!
-date:   2015-06-02 22:40:10
+date:   2015-06-02 12:00:00
 ---
 This is the __Hoard__, where the Icewyrm stores things it wishes to keep. This blog holds simple posts, such as videos or short code snippets, while longer scholarly articles can be accessed from the top bar.
 

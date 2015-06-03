@@ -2,7 +2,7 @@
 	<header class="panel-heading">
 		<h1 class="panel-title">{{ page.title }}</h1>
 		{% if page.author %}<small>By {{ page.author }}</small>{% endif %}
-		{% if page.date %}<small>{{ page.date }}</small>{% endif %}
+		{% if page.date %}<small>{{ post.date | date: "%b %-d, %Y" }}</small>{% endif %}
 	</header>
 
 	<section class="panel-body">

@@ -37,7 +37,7 @@ There are countless ways that I can swing my fist, countless ways I can swing a 
 ![ ][Kick2]<cite>Frame 8: Extends and connects</cite>
 
 - __Recovery__ -- The move is no longer active, but I must spend time recovering back to my "rest" state before I can perform another move.
-![ ][Kick2]<cite>Frame 12: Brings the leg back</cite>
+![ ][Kick3]<cite>Frame 12: Brings the leg back</cite>
 
 It is important to understand how moves are affected by adjusting any of these three stages. The longer the startup, the easier it is to judge what move you are doing. The tighter the hit frames the harder it is to land. The longer the recovery the easier it is to punish. You can have the most powerful move in the game and I the weakest, but if my move has fewer start up frames, I will beat you all day every day. My speed defeats your power.
 
@@ -134,6 +134,7 @@ And if you choose to take away only one thing from this post, let it be this: [
 
 [Kick1]: ./Kick1.jpg
 [Kick2]: ./Kick2.jpg
+[Kick3]: ./Kick3.jpg
 [AttackerRecover]: ./AttackerRecover.jpg
 [DefenderRecover]: ./DefenderRecover.jpg
 [Roles]: ./Roles.jpg
