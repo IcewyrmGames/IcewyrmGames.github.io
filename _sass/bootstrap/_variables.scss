@@ -854,11 +854,12 @@ $abbr-border-color:           $gray-light !default;
 //** Headings small color
 $headings-small-color:        $gray-light !default;
 //** Blockquote small color
+$blockquote-color:			  $gray !default;
 $blockquote-small-color:      $gray-light !default;
 //** Blockquote font size
-$blockquote-font-size:        ($font-size-base * 1.25) !default;
+$blockquote-font-size:        $font-size-base !default;
 //** Blockquote border color
-$blockquote-border-color:     $gray-lighter !default;
+$blockquote-border-color:     lighten($link-color, 45.0%) !default;
 //** Page header border color
 $page-header-border-color:    $gray-lighter !default;
 //** Width of horizontal description list titles

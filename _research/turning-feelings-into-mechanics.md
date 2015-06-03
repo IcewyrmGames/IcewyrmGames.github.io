@@ -39,8 +39,8 @@ For example, Rose is a novelist. The fact that she is a novelist is one of the c
 ## Rose Wright: The Uncertain Newlywed
 Rose's first vignette was the second prototype we created for the game. This part of her story was inspired by two key facts:
 
-	* Rose is a novelist.
-	* Rose has difficulty balancing her time between her spouse and her career.
+- Rose is a novelist.
+- Rose has difficulty balancing her time between her spouse and her career.
 
 The process of writing is wonderful and horrible. Moments of flow where the words just come to you are magical; writer's block, on the other hand, is awful. But the moment when someone — your mom, your child, your significant other — interrupts what you're doing (even if it's just to ask if you want a cookie) is the worst.
 
@@ -101,9 +101,9 @@ May's story is told in three vignettes. Her vignettes are simple in gameplay; in
 
 Each of May’s vignettes explores different ways to create cuts in games. May 1 cuts back-and-forth between first person and third person. May 2 cuts between first-person scenes. May 3 cuts between third-person scenes. The main challenges were figuring out how to cut from scene to scene without:
 
-	1. Jarring the player’s focus
-	2. Making the player lose control of the character
-	3. Confusing the player about the narrative of each vignette.
+1. Jarring the player’s focus
+2. Making the player lose control of the character
+3. Confusing the player about the narrative of each vignette.
 
 Raghav developed several scene-cutting techniques to solve these problems and implemented them in May’s vignettes. You might be thinking, what's so cool about cuts? It turns out they’re a very versatile tool. Cuts are useful as a transitional tool for taking the player from one place to another without making them take the time to walk, or use an ill-contrived door.
 
