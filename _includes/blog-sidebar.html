@@ -1,7 +1,7 @@
 {% assign categories = site.posts | group_by: "category" %}
 <nav class="panel panel-default" style="margin-left: -15px;">
 	<a href="/{{ /index.html | prepend: site.baseurl }}" class="list-group-item">
-		  <span class="glyphicon glyphicon-list" style="width:20px"></span><span class="lead">Index</span>
+		  <span class="glyphicon glyphicon-th-list" style="width:20px"></span><span class="lead">Index</span>
 	</a>
 	{% for post in site.posts limit: 20 %}
 	<a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item">
