@@ -52,6 +52,7 @@ Those are the aspects of your game that players engage with most immediately, so
 Dungeons and Dragons is about role-playing characters in a fantasy setting and going on adventures with your friends. Teamwork and cooperation are an important part of the experience. Characters perform actions in turn, with the chance of success and results of those actions defined by systems. To make cooperation matter, there are a variety of types of challenges (combat, disarming traps, social interactions) and combat roles (defender, striker, support) that characters can be strong or weak in.
 
 As a systems designer, the above description would direct my work in several ways:
+
 - To encourage teamwork, systems should allow characters to excel in certain types of challenges and combat roles, but not others.
 - Role-playing and non-combat play is important, so social statistics should be meaningful.
 - Since immersion and role-playing are important, the content of the game should be flavorful and exciting in a fantasy setting.
