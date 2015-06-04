@@ -1,7 +1,7 @@
 {% assign collection = site.collections.[page.collection].docs | sort: "priority", "last" | group_by: "category" %}
 <nav class="panel panel-primary">
-	<div class="list-group-item">
-		<span class="lead">{{ page.collection | capitalize}}</span>
+	<div class="list-group-item disabled">
+		<span class="lead"><strong>{% if page.heading %}{{ page.heading }}{% else %}{{ page.collection | capitalize}}{% endif %}</strong></span>
 	</div>
 </nav>
 {% for group in collection %}
