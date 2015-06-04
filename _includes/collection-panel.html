@@ -11,8 +11,8 @@
 	</div>
 	{% for d in group.items %}{% if d.title %}
 	<a href="{{ d.url | prepend: site.baseurl }}" class="list-group-item{% if d.priority %} priority-{{ d.priority }}{% endif %}">
-		<h4 class="lead" style="margin-bottom: 0px;">{{ d.title }}</h4>
-		<p>By {{ d.author }}</p>
+		<h1 class="lead" style="margin: 0px;">{{ d.title }}</h1>
+		By {{ d.author }}
 	</a>
 	{% endif %}{% endfor %}
 </nav>
