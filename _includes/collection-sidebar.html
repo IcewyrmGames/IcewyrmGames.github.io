@@ -5,14 +5,18 @@
 	</a>
 </nav>
 {% for group in collection %}
+{% assign priorities = group.items | group_by: "priority" %}
 <nav class="panel panel-default" style="margin-left: -15px;">
 	<div class="panel-heading">
 		{% if group.name %}<h1 class="panel-title">{{ group.name | capitalize }}</h1>{% endif %}
 	</div>
-	{% for d in group.items %}{% if d.title %}
-	<a href="{{ d.url | prepend: site.baseurl }}" class="list-group-item{% if d.url == page.url %} active{% endif %}{% if d.priority %} priority-{{ d.priority }}{% endif %}">
-		{{ d.title }}
-	</a>
-	{% endif %}{% endfor %}
+	{% for priority in priorities %}
+	{% assign docs = priority.items | sort: "title", "last" %}
+		{% for d in docs %}{% if d.title %}
+		<a href="{{ d.url | prepend: site.baseurl }}" class="list-group-item{% if d.url == page.url %} active{% endif %}{% if d.priority %} priority-{{ d.priority }}{% endif %}">
+			{{ d.title }}
+		</a>
+		{% endif %}{% endfor %}
+	{% endfor %}
 </nav>
 {% endfor %}

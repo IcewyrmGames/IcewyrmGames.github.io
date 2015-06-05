@@ -3,7 +3,7 @@
 	<a href="/{{ /index.html | prepend: site.baseurl }}" class="list-group-item">
 		  <span class="glyphicon glyphicon-th-list" style="width:20px"></span><span class="lead">Index</span>
 	</a>
-	{% for post in site.posts limit: 20 %}
+	{% for post in site.posts limit: 10 %}
 	<a href="{{ post.url | prepend: site.baseurl }}" class="list-group-item">
 		<span class="center-block">{{ post.title }}</span>
 		<small>{{ post.date | date: "%b %-d, %Y" }}</small>
@@ -11,14 +11,15 @@
 	{% endfor %}
 </nav>
 {% for category in categories %}
+{% assign posts = category.items | sort: "date", "last" %}
 <nav class="panel panel-default" style="margin-left: -15px;">
 	<div class="panel-heading">
 		{% if category.name %}<h1 class="panel-title">{{ category.name | capitalize }}</h1>{% endif %}
 	</div>
-	{% for post in category.items %}{% if post.title %}
+	{% for post in posts limit: 10 %}
 	<a href="{{ p.url | prepend: site.baseurl }}" class="list-group-item{% if p.url == post.url %} active{% endif %}">
 		{{ post.title }}
 	</a>
-	{% endif %}{% endfor %}
+	{% endfor %}
 </nav>
 {% endfor %}
