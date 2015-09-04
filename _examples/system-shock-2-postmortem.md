@@ -3,7 +3,7 @@ layout: article
 title: System Shock 2 Postmortem
 author: Jonathan Chey
 source: http://www.gamasutra.com/view/feature/131813/postmortem_irrational_games_.php
-category: postmortems
+category: Postmortem
 ---
 
 # Introduction

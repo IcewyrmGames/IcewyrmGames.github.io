@@ -3,6 +3,7 @@ layout: article
 title: How to Design a User Feedback Survey
 author: Nefer Doane
 source: http://gamasutra.com/blogs/NeferDoane/20150316/238780/How_to_Design_a_Survey_for_User_Feedback.php
+category: Analysis
 priority: 3
 ---
 

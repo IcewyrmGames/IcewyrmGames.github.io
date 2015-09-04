@@ -3,6 +3,7 @@ layout: article
 title: RPG Battle Systems Part 2
 author: Craig Stern (Sinister Design)
 source: http://sinisterdesign.net/12-ways-to-improve-turn-based-rpg-combat-systems/
+category: Mechanics
 priority: 3
 ---
 

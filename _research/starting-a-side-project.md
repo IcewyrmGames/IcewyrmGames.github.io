@@ -3,6 +3,7 @@ layout: article
 title: Starting a Side Project
 author: Adam Engels
 source: http://www.gamasutra.com/blogs/AdamEngels/20150507/242877/Tips_for_Starting_Your_Side_Project.php
+category: General
 priority: 2
 ---
 

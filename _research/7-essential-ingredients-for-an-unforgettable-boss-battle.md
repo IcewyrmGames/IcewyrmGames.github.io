@@ -3,6 +3,7 @@ layout: article
 title: 7 Essential Ingredients for an Unforgettable Boss Battle
 author: MaybeLaterx
 source: http://mentalblockgaming.com/blog/game-design/boss-fights/
+category: Mechanics
 priority: 2
 ---
 

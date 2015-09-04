@@ -3,6 +3,7 @@ layout: article
 title: Turning Feelings Into Mechanics
 author: Robyn Gray, Richard Emms, and Raghav Bashyal
 source: http://gamasutra.com/blogs/RichardEmms/20150526/244236/Turning_Feelings_Into_Mechanics__The_narrative_design_of_Apartment_A_Separated_Place.php
+category: Analysis
 ---
 
 # Introduction

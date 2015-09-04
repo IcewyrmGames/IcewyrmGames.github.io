@@ -3,6 +3,7 @@ layout: article
 title: The Invisible Hand of Super Metroid
 author: Hugo Bille
 source: http://www.gamasutra.com/blogs/HugoBille/20120114/90903/The_Invisible_Hand_of_Super_Metroid.php
+category: Analysis
 ---
 
 # Introduction

@@ -1,8 +1,9 @@
 ---
 layout: article
-title: How to Design Enemies
+title: "Designing Enemies: How I Learned to Stop Worrying and Love the MvC"
 author: Mike Birkhead
 source: http://web.archive.org/web/20140801081037/http://www.altdev.co/2011/05/20/how-to-design-enemies-tips-from-a-combat-designer/
+category: Mechanics
 priority: 2
 ---
 

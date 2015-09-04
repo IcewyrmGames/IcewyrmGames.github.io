@@ -3,6 +3,7 @@ layout: article
 title: Hourences Level Design Tips
 author: Sjoerd De Jong (Hourences)
 source: http://80.lv/articles/10-rules-of-building-great-games-and-levels/
+category: Level Design
 ---
 
 # The Importance of Planning

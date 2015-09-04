@@ -3,7 +3,7 @@ layout: article
 title: Darkest Dungeon's Affliction System
 author: Chris Bourassa
 source: http://www.gamasutra.com/view/news/244480/Game_Design_Deep_Dive_Darkest_Dungeons_Affliction_System.php
-category: deep dive
+category: Deep Dive
 ---
 
 # Who: Chris Bourassa, creative director and artist, and Tyler Sigman, game designer and executive producer

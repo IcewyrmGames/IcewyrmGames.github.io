@@ -3,6 +3,7 @@ layout: article
 title: Procedural Planet Generation
 author: Andy Gainey
 source: http://experilous.com/1/blog/post/procedural-planet-generation
+category: Programming
 ---
 
 # Introduction

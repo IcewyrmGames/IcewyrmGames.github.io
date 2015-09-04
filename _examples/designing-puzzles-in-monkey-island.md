@@ -3,6 +3,7 @@ layout: article
 title: Designing Puzzles in Monkey Island
 author: Marcus Bäumer
 source: http://gamasutra.com/blogs/MarcusBumer/20150302/237763/Designing_puzzles_for_adventure_games__Analyzing_Monkey_Island_2_puzzle_dependencies_and_balancing.php
+category: Analysis
 ---
 
 I think (classic) adventure games are really challenging to design because they consist of so many elements you have to pay attention to. One very central element of such games are puzzles, because adventure games are basically story-driven puzzle games. And believe me, good puzzles are not easy to design. How do you even start? And how can you ever know that your puzzle chains are good before you build a prototype and let people play a very rough and at no point ready to be played game? What is a good balance for scenes, characters and the number of puzzles the player has to solve? Writing puzzles for an adventure game is demanding and requires a really good sense for the intended game experience you want the player to have. Puzzles should neither be too easy nor too hard. The player should have to do some thinking to get to your puzzles’ solutions, but the puzzles should always stay logical and reasonable. Nothing in the world is worse than having the players solve puzzles just by accident and thinking they would never have guessed the solution because it’s just illogical - at the same time your puzzles SHOULD be creative, crazy, surprising. So writing good puzzles is kind of a fine line.

@@ -3,6 +3,7 @@ layout: article
 title: 13 Basic Principles of Game Design
 author: Matt Allmer
 source: http://www.gamasutra.com/view/feature/132341/the_13_basic_principles_of_.php
+category: General
 ---
 
 # Introduction

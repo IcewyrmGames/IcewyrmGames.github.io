@@ -3,6 +3,7 @@ layout: article
 title: The Craft of Game Systems Part 1
 author: Daniel Achterman
 source: http://web.archive.org/web/20140722022325/http://www.altdev.co/2011/11/12/the-craft-of-game-systems-part-1/
+category: Mechanics
 priority: 1
 ---
 

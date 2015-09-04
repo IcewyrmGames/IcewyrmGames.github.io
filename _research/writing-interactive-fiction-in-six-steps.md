@@ -3,6 +3,7 @@ layout: article
 title: Writing Interactive Fiction in Six Steps
 author: Ben Serviss
 source: http://www.dashjump.com/writing-interactive-fiction-six-steps/
+category: Writing
 priority: 4
 ---
 

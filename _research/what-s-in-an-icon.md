@@ -4,6 +4,7 @@ title: What's in an Icon?
 author: Nicholas Lives
 source: http://www.gamasutra.com/blogs/NicholasLives/20150311/238452/Whats_in_an_quotIconquot.php
 priority: 2
+category: General
 ---
 
 ![ ][Iconic]

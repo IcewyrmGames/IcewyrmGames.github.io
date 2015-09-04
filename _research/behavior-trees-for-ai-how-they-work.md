@@ -3,6 +3,7 @@ layout: article
 title: "Behavior Trees For AI: How They Work"
 author: Chris Simpson
 source: http://www.gamasutra.com/blogs/ChrisSimpson/20140717/221339/Behavior_trees_for_AI_How_they_work.php
+category: Programming
 priority: 4
 ---
 

@@ -3,6 +3,7 @@ layout: article
 title: Reducing Visual Confusion In Your Game
 author: Peter Angstadt
 source: http://gamasutra.com/blogs/PeterAngstadt/20150312/238446/How_to_Reduce_Visual_Confusion_in_Your_Game.php
+category: Art
 priority: 3
 ---
 

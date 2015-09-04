@@ -3,7 +3,7 @@ layout: article
 title: Story-Driven Roguelike, Sproggiwood
 author: Jason Grinblat
 source: http://gamasutra.com/blogs/JasonGrinblat/20150526/244216/Design_Postmortem_StoryDriven_Roguelike_Sproggiwood.php
-category: postmortems
+category: Postmortem
 ---
 
 # Introduction

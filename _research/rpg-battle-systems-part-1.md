@@ -3,6 +3,7 @@ layout: article
 title: RPG Battle Systems Part 1
 author: Craig Stern (Sinister Design)
 source: http://sinisterdesign.net/the-battle-system-i-wish-rpgs-would-stop-using/
+category: Mechanics
 priority: 3
 ---
 

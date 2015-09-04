@@ -3,6 +3,7 @@ layout: article
 title: How To Use Photoshop Layer Styles Like a Boss
 author: Dave Bleja
 source: http://www.volnaiskra.com/volblog/how-to-use-layer-styles-for-efficient-and-versatile-game-illustration-advanced-guide
+category: Art
 priority: 4
 ---
 

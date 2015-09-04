@@ -3,6 +3,7 @@ layout: article
 title: Where Do Characters Come From?
 author: Adam The Game Guy
 source: http://adamthegameguy.ca/mommy-where-do-characters-come-from/#side-note
+category: Writing
 ---
 
 # Introduction

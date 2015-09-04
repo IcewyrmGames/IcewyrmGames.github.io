@@ -3,6 +3,7 @@ layout: article
 title: Writing a more compelling game narrative
 author: Will O'Neill
 source: http://indiemegabooth.com/writing-compelling-game-narrative/
+category: Writing
 priority: 4
 ---
 

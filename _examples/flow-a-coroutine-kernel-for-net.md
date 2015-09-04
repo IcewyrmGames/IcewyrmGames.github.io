@@ -3,6 +3,7 @@ layout: article
 title: "Flow - A Coroutine Kernel For .Net"
 author: Christian Schladetsch
 source: http://www.gamasutra.com/view/news/177397/Indepth_Flow__A_coroutine_kernel_for_Net.php
+category: Programming
 ---
 
 # Introduction

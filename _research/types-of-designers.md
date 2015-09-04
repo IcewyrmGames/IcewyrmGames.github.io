@@ -3,6 +3,7 @@ layout: article
 title: Types of Designers
 author: Liz England
 source: http://gamasutra.com/blogs/LizEngland/20140620/219559/Types_of_Designers.php
+category: General
 priority: 1
 ---
 

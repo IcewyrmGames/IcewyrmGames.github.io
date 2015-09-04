@@ -3,6 +3,7 @@ layout: article
 title: Armor For Dummies And/Or Game Developers
 author: Anna Jenelius
 source: http://www.gamasutra.com/blogs/AnnaJenelius/20150520/243514/Armor_for_Dummies_andor_Game_Developers.php
+category: General
 priority: 3
 ---
 

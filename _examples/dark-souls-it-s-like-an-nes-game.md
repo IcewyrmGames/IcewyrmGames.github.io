@@ -3,6 +3,7 @@ layout: article
 title: "Dark Souls: It's Like An NES Game!"
 author: James Margaris
 source: http://www.gamasutra.com/blogs/JamesMargaris/20150505/242687/Dark_Souls_Its_like_an_NES_Game.php
+category: Analysis
 ---
 
 # About This Series

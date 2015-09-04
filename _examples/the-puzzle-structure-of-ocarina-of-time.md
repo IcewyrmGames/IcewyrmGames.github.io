@@ -3,6 +3,7 @@ layout: article
 title: The Puzzle Structure of Ocarina of Time
 author: Gareth Rees
 source: http://garethrees.org/2004/12/01/ocarina-of-time/
+category: Analysis
 ---
 
 # 1. Introduction

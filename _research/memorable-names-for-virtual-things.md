@@ -3,6 +3,7 @@ layout: article
 title: Memorable Names For Virtual Things
 author: Rob Lockhart
 source: http://www.gamasutra.com/blogs/RobLockhart/20150331/240114/Memorable_Names_for_Virtual_Things.php
+category: General
 priority: 1
 ---
 

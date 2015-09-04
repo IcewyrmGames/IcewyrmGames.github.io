@@ -3,6 +3,7 @@ layout: article
 title: Funding Your Game Startup
 author: Burak Tezateser
 source: http://gamasutra.com/blogs/BurakTezateser/20150512/242814/Funding_your_game_startup.php
+category: Business
 priority: 2
 ---
 

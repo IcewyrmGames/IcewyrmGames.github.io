@@ -3,6 +3,7 @@ layout: article
 title: The Importance of Typography in Video Games
 author: Carol Mertz
 source: http://gamasutra.com/blogs/CarolMertz/20150513/243306/Down_to_the_Letter_The_Importance_of_Typography_in_Video_Games.php
+category: User Interface
 priority: 3
 ---
 

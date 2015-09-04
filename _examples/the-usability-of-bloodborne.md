@@ -3,6 +3,7 @@ layout: article
 title: The Usability of Bloodborne
 author: Ben Lewis-Evans
 source: http://www.gamasutra.com/blogs/BenLewisEvans/20150518/243716/The_Usability_of_Bloodborne.php
+category: Analysis
 ---
 
 # Introduction

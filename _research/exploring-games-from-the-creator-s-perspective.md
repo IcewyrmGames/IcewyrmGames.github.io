@@ -3,6 +3,7 @@ layout: article
 title: Exploring Games from the Creator’s Perspective
 author: Nathan Lovato
 source: http://blog.gameanalytics.com/blog/how-to-analyze-games.html
+category: Analysis
 priority: 3
 ---
 

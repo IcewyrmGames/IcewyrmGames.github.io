@@ -3,6 +3,7 @@ layout: article
 title: How to Design Effective Achievements Part 2
 author: Lucas Blair
 source: http://gamasutra.com/view/feature/134744/the_cake_is_not_a_lie_how_to_.php
+category: General
 priority: 3
 ---
 

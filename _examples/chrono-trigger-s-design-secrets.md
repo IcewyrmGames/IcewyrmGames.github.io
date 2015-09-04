@@ -3,6 +3,7 @@ layout: article
 title: Chrono Trigger's Design Secrets
 author: Victoria Earl
 source: http://www.gamasutra.com/view/feature/172993/chrono_triggers_design_secrets.php
+category: Analysis
 ---
 
 # Introduction

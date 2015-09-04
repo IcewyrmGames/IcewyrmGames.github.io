@@ -4,7 +4,7 @@ title: Diablo II Postmortem
 author: Erich Schaefer
 source: http://www.gamasutra.com/view/feature/131533/postmortem_blizzards_diablo_ii.php
 priority: 1
-category: postmortems
+category: Postmortem
 ---
 
 # Introduction

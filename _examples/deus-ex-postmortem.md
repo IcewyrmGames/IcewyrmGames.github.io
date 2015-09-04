@@ -4,7 +4,7 @@ title: Deus Ex Postmortem
 author: Warren Spector
 source: http://www.gamasutra.com/view/feature/131523/postmortem_ion_storms_deus_ex.php?print=1
 priority: 1
-category: postmortems
+category: Postmortem
 ---
 
 # Introduction

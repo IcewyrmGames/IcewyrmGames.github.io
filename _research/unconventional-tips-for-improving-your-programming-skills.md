@@ -3,6 +3,8 @@ layout: article
 title: Unconventional Tips for Improving your Programming Skills
 author: Livio De La Cruz's
 source: http://gamasutra.com/blogs/LivioDeLaCruz/20140702/220177/Unconventional_Tips_for_Improving_your_Programming_Skills.php
+category: Programming
+priority: 1
 ---
 
 # Introduction

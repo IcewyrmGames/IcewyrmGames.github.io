@@ -3,6 +3,7 @@ layout: article
 title: Procedural Star Rendering
 author: Seed of Andromeda
 source: https://www.seedofandromeda.com/blogs/51-procedural-star-rendering
+category: Programming
 ---
 
 # Introduction

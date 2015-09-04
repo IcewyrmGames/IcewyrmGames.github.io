@@ -3,6 +3,7 @@ layout: article
 title: Breaking Down The Success Of The Witcher 3's Open World
 author: Phill Cameron
 source: http://www.gamasutra.com/view/news/243564/Opinion_Breaking_down_the_success_of_The_Witcher_3s_open_world.php
+category: Analysis
 ---
 
 # Introduction

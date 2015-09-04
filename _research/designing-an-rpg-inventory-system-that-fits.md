@@ -3,6 +3,7 @@ layout: article
 title: Designing an RPG Inventory System That Fits
 author: Robert DellaFave
 source: http://gamedevelopment.tutsplus.com/articles/designing-an-rpg-inventory-system-that-fits-preliminary-steps--gamedev-14725
+category: Mechanics
 priority: 3
 ---
 
