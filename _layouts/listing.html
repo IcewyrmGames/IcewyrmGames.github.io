@@ -1,6 +1,40 @@
 ---
 layout: default
 ---
-<div class="col-md-10 col-md-offset-1">
-	{% include collection-panel.html %}
+
+{% assign collection = site.collections.[page.collection].docs | sort: "category", "last" | group_by: "category" %}
+<div class="col-md-6">
+<nav class="panel panel-primary">
+	<div class="list-group-item disabled">
+		<span class="lead"><strong>{% if page.heading %}{{ page.heading }}{% else %}{{ page.collection | capitalize}}{% endif %}</strong></span>
+	</div>
+</nav>
 </div>
+
+{% for group in collection %}
+{% assign priorities = group.items | sort: "priority", "last" | group_by: "priority" %}
+<div class="col-md-6">
+<nav class="panel panel-default">
+	<div class="panel-heading">
+		{% if group.name %}<h1 class="panel-title">{{ group.name | capitalize }}</h1>{% endif %}
+	</div>
+	{% for priority in priorities %}
+	{% assign docs = priority.items | sort: "title", "last" %}
+		{% for d in docs %}{% if d.title %}
+		<a href="{{ d.url | prepend: site.baseurl }}" class="list-group-item{% if d.priority %} priority-{{ d.priority }}{% endif %}">
+			<h1 class="lead" style="margin: 0px;">{{ d.title }}</h1>
+			By {{ d.author }}
+		</a>
+		{% endif %}{% endfor %}
+	{% endfor %}
+</nav>
+</div>
+{% endfor %}
+
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script>
+	$("#fluid").masonry({
+		itemSelector: '.col-md-6'
+	});
+</script>
