@@ -421,29 +421,6 @@ Now, generalize from that point: It's all well and good to have design goals and
 
 I'm not saying we did that perfectly on Deus Ex. We certainly didn't ship a perfect game. But if we hadn't gone into development with the attitude that we'd do things right or not at all, we would have fallen far shorter of perfection than we did. How close we did get is something all of you can decide for yourselves. All I know is we're going to get closer next time.
 
-# Game Data
-
-![ ][Deus Ex]
-
-> __Deus Ex__
->
-> _Publisher:_ Eidos Interactive
->
-> _Number of Full-Time Developers:_ Approx. 20: 1 of me, 3 programmers, 6 designers, 7 artists, 1 writer, 1 associate producer, 1 tech
->
-> _Number of Contractors:_ Approx. 6: 2 writers, 4 testers
-Development Time: 6 months of preproduction and 28 months of production
->
-> _Release Date:_ June 23, 2000
->
-> _Target Platform:_ Windows 95/98/NT/2000 plus third-party Macintosh and Linux ports
->
-> _Critical Development Hardware:_ Ranged from dual Pentium Pro 200s with 8GB hard drives, to Athlon 800s with 9GB fast SCSI, and everything in between. More than 100 video cards were cycled through during development.
->
-> _Software Used:_ Visual Studio, Lightwave, Lotus Notes
->
-> _Notable Technologies:_ Unreal engine and associated tools such as UnrealEd and ConEdit (our proprietary conversation editor)
-
 [JCDenton]: ./JCDenton.jpg
 [Sketch]: ./Sketch.jpg
 [Liberty]: ./Liberty.jpg
@@ -459,4 +436,3 @@ Development Time: 6 months of preproduction and 28 months of production
 [Lab]: ./Lab.jpg
 [Hand]: ./Hand.jpg
 [Werner]: ./Werner.jpg
-[Deus Ex]: ./DeusEx.jpg

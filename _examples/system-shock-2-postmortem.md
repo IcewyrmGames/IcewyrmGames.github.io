@@ -133,39 +133,8 @@ As well as destroying our personal lives, our failure to judge the magnitude of 
 
 Ultimately System Shock 2 turned out better than I ever hoped it would. the final vindication for me was sitting in my office and playing the game in the final couple of weeks of the project, while waiting for EA to approve our final build. Despite the lack of sleep, the near-complete breakdown of my nervous system and the 18 months of time I spent working on the project, it was still fun to play. I like to think that we have managed to capture the feel of the original game by putting more game play into what initially looks like a fairly straightforward first-person shooter. It's been a great first project for Irrational Games and we look forward to doing even better the next time around.
 
-# Game Data
-
-![ ][System Shock 2]
-
-> __System Shock 2__
->
-> Irrational Games LLC
-> Cambridge, Mass.
-> (617) 441-6333
-> http://www.irrational-games.com
->
-> Looking Glass Studios Inc.
-> Cambridge, Mass.
-> (617) 441-6333
-> http://www.lglass.com
->
-> _Release date:_ August 1999
->
-> _Intended platform:_ Windows 95/98
->
-> _Project budget:_ $1.7 million
->
-> _Project length:_ 18 months
->
-> _Team size:_ 15 full-time developers, 10-15 part-time developers
->
-> _Critical development hardware:_ Pentium II machines, 200MHz to 450MHz with 64MB to 128MB RAM, Nvidia Riva 128, Voodoo, Voodoo 2, TNT cards, Creative Labs' sound cards, Wacom tablets, Windows 95/98. Also used SGI Indigo workstations.
->
-> _Critical development software:_ Microsoft Visual C++ 5.0, Opus Make, 3D Studio Max, Adobe Photoshop, Alias|Wavefront Power Animator, DeBabelizer Pro, RCS, Filemaker Pro, and Adaptive Optics motion capture software.
-
 [Reaver]: ./reaver.jpg
 [Midwife]: ./midwife.jpg
 [Psi Attack]: ./psi-attack.jpg
 [Hydroponics]: ./hydroponics.jpg
 [Xerxes]: ./xerxes.jpg
-[System Shock 2]: ./system-shock-2.jpg

@@ -137,27 +137,6 @@ The only major downside to Diablo II's development was the inhuman amount of wor
 
 Although I tried to avoid personalizing this article, I am extraordinarily proud of the entire development team. Diablo II could not have happened without all the superb individual efforts, the incredible creativity, and the whole team's dedication to the project, for which they have earned my gratitude, and no doubt that of the legions of players who enjoy the game.
 
-# Game Data
-![ ][Diablo2]
-
-> __Diablo II__
->
-> _Publisher:_ Blizzard Entertainment
->
-> _Full-Time Developers:_ 40
->
-> _Length of Development:_ 3 years.
->
-> _Release Date:_ June 28, 2000.
->
-> _Platforms:_ PC and Macintosh.
->
-> _Hardware Used:_ Typical programmer workstation: 500 MHz Pentium II running Windows NT with 128MB RAM and 9GB hard drive. Typical artist workstation: dual 500 MHz Pentium IIs running Windows NT with 256MB RAM and 14GB hard drive.
->
-> _Software Used:_ 3D Studio Max, Photoshop, Microsoft Developer Studio/Visual Studio and SourceSafe
->
-> _Notable Technologies:_ Glide, Direct3D, RAD Game Tools' Bink, DirectSound3D, and Creative Labs' EAX.
-
 [CharacterArt]: ./CharacterArt.jpg
 [KurastArt]: ./KurastArt.jpg
 [Amazon]: ./Amazon.jpg
@@ -170,4 +149,3 @@ Although I tried to avoid personalizing this article, I am extraordinarily proud
 [Palace]: ./Palace.jpg
 [Sewers]: ./Sewers.jpg
 [Monsters]: ./Monsters.jpg
-[Diablo2]: ./Diablo2.jpg
