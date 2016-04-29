@@ -2,7 +2,8 @@
 layout: default
 ---
 
-{% assign collection = site.collections.[page.collection].docs | sort: "category", "last" | group_by: "category" %}
+{% assign collection = site.collections | where: "label", page.collection | first %}
+{% assign categories = collection.docs | sort: "category", "last" | group_by: "category" %}
 <div class="col-md-6">
 <nav class="panel panel-primary">
 	<div class="list-group-item disabled">
@@ -11,7 +12,7 @@ layout: default
 </nav>
 </div>
 
-{% for group in collection %}
+{% for group in categories %}
 {% assign priorities = group.items | sort: "priority", "last" | group_by: "priority" %}
 <div class="col-md-6">
 <nav class="panel panel-default">

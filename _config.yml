@@ -15,10 +15,9 @@ author:
   github: booljayj
 
 permalink: /:year/:month/:day/:title/
-paginate: 10
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
 
 collections:
   research:

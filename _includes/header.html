@@ -12,7 +12,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% for collection in site.collections %}
-        <li{% if page.collection == collection[0] %} class="active"{% endif %}><a href="/{{ collection[0] }}/index/"><span class="glyphicon glyphicon-list" style="width:20px;"></span>{{ collection[0] | capitalize }}</a></li>
+        <li{% if page.collection == collection.label %} class="active"{% endif %}><a href="/{{ collection.label }}/index/"><span class="glyphicon glyphicon-list" style="width:20px;"></span>{{ collection.label | capitalize }}</a></li>
         {% endfor %}
       </ul>
     </div>

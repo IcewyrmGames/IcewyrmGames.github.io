@@ -1,10 +1,11 @@
-{% assign collection = site.collections.[page.collection].docs | sort: "category", "last" | group_by: "category" %}
+{% assign collection = site.collections | where: "label", page.collection | first %}
+{% assign categories = collection.docs | sort: "category", "last" | group_by: "category" %}
 <nav class="panel panel-default" style="margin-left: -15px;">
 	<a href="/{{ page.collection | prepend: site.baseurl }}/index/" class="list-group-item">
 		  <span class="glyphicon glyphicon-list" style="width:20px"></span><span class="lead">Index</span>
 	</a>
 </nav>
-{% for group in collection %}
+{% for group in categories %}
 {% assign priorities = group.items | sorty: "priority", "last" | group_by: "priority" %}
 <nav class="panel panel-default" style="margin-left: -15px;">
 	<div class="panel-heading">
