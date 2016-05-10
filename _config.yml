@@ -22,7 +22,5 @@ markdown: kramdown
 collections:
   research:
     output: true
-    permalink: /:collection/:title/
   examples:
     output: true
-    permalink: /:collection/:title/
